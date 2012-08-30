@@ -19,7 +19,7 @@ main :: IO ()
 main = hakyllWith config $ do
 
   -- route styles
-  match "styles/*.css" $ do
+  match "styles/**" $ do
     route idRoute
     compile copyFileCompiler
 

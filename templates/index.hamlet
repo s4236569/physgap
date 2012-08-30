@@ -9,25 +9,21 @@
       <script type="text/javascript" src="scripts/jquery.js">
       <script type="text/javascript" src="scripts/jquery.mobile-1.1.1.min.js">
       <script type="text/javascript" src="cordova-2.0.0.js">
-      <script type="text/javascript" src="scripts/index.js">
       <title>Hello World</title>
   <body>
-    <div class="app">
-      <div data-role="page">
-        <div data-role="header">
-          <h1> Welcome!
-        <div data-role="content">
-          <div id="banner">
-            <h2>Mobile Dev 2011
-          <p> The best mobile development conference is here!</p>
-          <p> Learn how to build productivity, utility and immersive mobile applications.</p>
-          <p> Use web-based and native platforms to create amazing applications for mobile devices.
-          <ul data-role="listview" data-inset="true">
-            <li><a href="./register.html">Register
-            <li><a href="./speakers.html">Speakers
-            <li><a href="./schedule.html">Schedule
-            <li><a href="./information.html">Information
-    <script type="text/javascript">
-        app.initialize();
+    <div data-role="page">
+      <div data-role="header">
+        <h1> Welcome!
+      <div data-role="content">
+        <div id="banner">
+          <h2>Mobile Dev 2011
+        <p> The best mobile development conference is here!</p>
+        <p> Learn how to build productivity, utility and immersive mobile applications.</p>
+        <p> Use web-based and native platforms to create amazing applications for mobile devices.
+        <ul data-role="listview" data-inset="true">
+          <li><a href="./register.html">Register
+          <li><a href="./speakers.html">Speakers
+          <li><a href="./schedule.html">Schedule
+          <li><a href="./information.html">Information
 
 
