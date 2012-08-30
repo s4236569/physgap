@@ -8,8 +8,8 @@ Author: Michael McClintock. Contact me at michael.ross.mcclintock@gmail.com
 This is my take on PhoneGap/ PhoneGap Build technology. For official
 documentation visit.
 
-* (PhoneGap Build)[https://build.phonegap.com/docs]. FAQs provide a good summary
-* (PhoneGap)[http://phonegap.com/about]
+* [PhoneGap Build](https://build.phonegap.com/docs). FAQs provide a good summary
+* [PhoneGap](http://phonegap.com/about)
 
 Phonegap is a technology that exposes native features of mobile
 devices via a javascript interface. It gives you the power to write
@@ -28,9 +28,10 @@ the different devices which is much more convenient.
 
 # The Apps
 
-All the apps are available for download from
+All the apps are available for download from this projects PhoneGap
+Build website:
 
-(PhoneGap Build website)[https://build.phonegap.com/apps/195010/share]
+[Public phonegap build website](https://build.phonegap.com/apps/195010/share)
 
 Note that the iOS package can only be installed by devices linked to my
 Apple account. (Apple goes to great lengths to stop users from
