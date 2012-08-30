@@ -115,7 +115,7 @@ similar tools see the "Similar Projects" section
 
 The advantage of using a website compiler is that its easy to maintain
 complexity. Once the system is set up its very easy to go from content
-to multi-platform mobile apps. The full build process on Linux (should
+to multi-platform mobile apps. The complete process on Linux (should
 be similar on windows) is:
 
 1. Anyone can come along and write/modify content in markdown (see the
