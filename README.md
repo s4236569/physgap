@@ -112,10 +112,11 @@ web files will do. Personally I'm comfortable with Haskell so is use
 similar tools see the "Similar Projects" section
 [here](http://nanoc.stoneship.org/). 
 
-The advantage of using a website compiler is that its easy to maintain
-complexity. Once the system is set up its very easy to go from content
-to multi-platform mobile apps. The complete process on Linux (should
-be similar on windows) is:
+The advantage of using a website compiler is that you can maintain the
+complexity of a website in a systematic and automated way. Once the
+system is set up its very easy to go from content to multi-platform
+mobile apps. The complete process on Linux (should be similar on
+windows) is:
 
 1. Anyone can come along and write/modify content in markdown. See the
    content folder above (work in progress). This includes adding
