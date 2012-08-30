@@ -21,6 +21,7 @@
     <preference name="fullscreen"       value="false" />
 
     <icon src="icon.png" />
+    <icon src="icon.png" default="true" />
     <icon src="static/icons/android/ico-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />
     <icon src="static/icons/android/ico-48-mdpi.png"   gap:platform="android"    gap:density="mdpi" />
     <icon src="static/icons/android/ico-72-hdpi.png"   gap:platform="android"    gap:density="hdpi" />
