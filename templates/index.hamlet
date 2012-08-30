@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta name="format-detection" content="telephone=no" />
+      <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+      <link rel="stylesheet" type="text/css" href="styles/index.css" />
+      <title>Hello World</title>
+  <body>
+    <div class="app">
+      <h1>PhoneGap
+      <div id="deviceready">
+        <p class="status pending blink">Connecting to Device
+        <p class="status complete blink hide">Device is Ready
+    <script type="text/javascript" src="cordova-2.0.0.js">
+    <script type="text/javascript" src="scripts/index.js">
+    <script type="text/javascript">
+        app.initialize();
