@@ -11,7 +11,7 @@
       <script type="text/javascript" src="cordova-2.0.0.js">
       <title>Hello World
   <body>
-    <div data-role="page" data-add-back-btn="true" data-back-btn-text="Back">
+    <div data-role="page">
       <div data-role="header">
         <h1> PHYS1171 - Pressure
       <div data-role="content">
