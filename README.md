@@ -142,7 +142,7 @@ be similar on windows) is:
 * templates. This is where all the non-content bits of the web pages
   go. Basically the content gets inserted into the templates to
   produce complete html.
-* www. The output folder. Used by phonegap build to create the apps
+* www . The output folder. Used by phonegap build to create the apps
 * README.md. This file
 * physgap.hs. tells the "website compiler" what to do
 
