@@ -49,7 +49,7 @@ the www directory above.
 
 All the remaining files are simply used for transforming content into
 webfiles. In otherwords the www directy is a function of all the other
-files. The reason for this is that its much easy to write
+files. The reason for this is that its much easy to write and maintain
 
 ```markdown
 
