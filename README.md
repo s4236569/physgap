@@ -1,5 +1,7 @@
 Phonegap App for a trial first year physics course at UQ.
 
+https://build.phonegap.com/apps/195010/share
+
 The webapp itself is self contained in the www directory. This is the
 directory phonegap build will look for.
 
