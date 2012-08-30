@@ -13,9 +13,11 @@
   <body>
     <div data-role="page">
       <div data-role="header">
-        <h1> UQ Physics Notes
+        <h1> PHYS1171
       <div data-role="content">
-        <p> This app stores some trial matrial for first year physics
-        <p> Please select a class below:
+        <p> Welcome to PHYS1171 mobile content!
+        <p> Beloware some topics studied in PHYS1171:
         <ul data-role="listview" data-inset="true">
-          <li><a href="./PHYS1171.html">PHYS1171 - Physical Basis of Biological Systems
+          <li><a href="content/pressure.html">Pressure and Depth: Chapter 11
+          <li><a href="content/buoyancy.html">Buoyancy: Chapter 12
+          <li><a href="content/nonviscous.html">Non-viscous fluids: Chapter 14

@@ -43,6 +43,14 @@ main = hakyllWith config $ do
   create "index.html" $ constA mempty 
     >>> applyTemplateCompiler "templates/index.hamlet"
 
+  match "PHYS1171.html" $ route idRoute
+  create "PHYS1171.html" $ constA mempty 
+    >>> applyTemplateCompiler "templates/PHYS1171.hamlet"
+
+  match "content/*.md" $ do
+    route .setExtension $ ".html"
+    compile (pageCompiler >>> applyTemplateCompiler "templates/page.hamlet")
+
   -- config.xml
   match "config.xml" $ route idRoute
   create "config.xml" $ constA mempty 
