@@ -118,10 +118,10 @@ complexity. Once the system is set up its very easy to go from content
 to multi-platform mobile apps. The complete process on Linux (should
 be similar on windows) is:
 
-1. Anyone can come along and write/modify content in markdown (see the
-   content folder above). This includes adding modules, tutorials etc.
-   If there is media involved they simply put their pics, movies etc.
-   in the static folder.
+1. Anyone can come along and write/modify content in markdown. See the
+   content folder above (work in progress). This includes adding
+   modules, tutorials etc. If there is media involved they simply put
+   their pics, movies etc. in the static folder.
 2. The website compiler builds the www directory
 3. Everything is pushed to Github
 4. PhoneGap Build is linked to the Github Repo. So it grabs the whole
