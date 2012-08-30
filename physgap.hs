@@ -33,6 +33,10 @@ main = hakyllWith config $ do
     route idRoute
     compile copyFileCompiler
 
+  --route phonegap icon
+  match "icon.png" $ do
+    route idRoute
+    compile copyFileCompiler
 
   -- index
   match "index.html" $ route idRoute
