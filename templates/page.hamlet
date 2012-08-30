@@ -9,7 +9,7 @@
       <script type="text/javascript" src="scripts/jquery.js">
       <script type="text/javascript" src="scripts/jquery.mobile-1.1.1.min.js">
       <script type="text/javascript" src="cordova-2.0.0.js">
-      <title>Hello World</title>
+      <title>Hello World
   <body>
     <div data-role="page">
       <div data-role="header">
