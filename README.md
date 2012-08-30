@@ -129,7 +129,8 @@ be similar on windows) is:
 
 # Repository Structure
 
-* content. Holds all the actual material in markdown format
+* content. Holds all the actual material in markdown format (this is
+  where all the fun physics goes).
 * scripts. Place for all the javascript. This includes things like
   JQuery Mobile for gui elements. Mathjax for equation rendering. Any
   other dynamic library
