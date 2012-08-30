@@ -1,9 +1,7 @@
 Phonegap App for a trial of "mobile based" first year physics material
 at UQ.
 
-# Author
-
-Michael McClintock. Contact me at michael.ross.mcclintock@gmail.com
+Author: Michael McClintock. Contact me at michael.ross.mcclintock@gmail.com
 
 # Background
 
