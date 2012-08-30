@@ -28,17 +28,16 @@ the different devices which is much more convenient.
 
 # The Apps
 
-All the apps are available for download from this project's PhoneGap
-Build website:
+All the apps produced in this project are available for download from 
+this project's public PhoneGap Build website:
 
-[Public phonegap build website](https://build.phonegap.com/apps/195010/share)
+[physgap website](https://build.phonegap.com/apps/195010/share)
 
 Note that the iOS package can only be installed by devices linked to my
 Apple account. (Apple goes to great lengths to stop users from
 installing apps not purchased through App Store)
 
 I have only tested the iOS and Android apps.
-
 
 # How it works
 
