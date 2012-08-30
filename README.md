@@ -125,7 +125,8 @@ be similar on windows) is:
 2. The website compiler builds the www directory
 3. Everything is pushed to Github
 4. PhoneGap Build is linked to the Github Repo. So it grabs the whole
-   repo and spits out packaged applications for each platform.
+   repo and spits out packaged applications for each platform
+   available [here](https://build.phonegap.com/apps/195010/share).
 
 # Repository Structure
 
