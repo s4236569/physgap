@@ -29,7 +29,7 @@ main = hakyllWith config $ do
     compile copyFileCompiler
 
   -- route static
-  match "static/**" $ do
+  match "static/**.png" $ do
     route idRoute
     compile copyFileCompiler
 
