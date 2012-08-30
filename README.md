@@ -28,7 +28,7 @@ the different devices which is much more convenient.
 
 # The Apps
 
-All the apps are available for download from this projects PhoneGap
+All the apps are available for download from this project's PhoneGap
 Build website:
 
 [Public phonegap build website](https://build.phonegap.com/apps/195010/share)
@@ -40,7 +40,57 @@ installing apps not purchased through App Store)
 I have only tested the iOS and Android apps.
 
 
-# What phonegap build needs
+# What this repository holds
+
+All PhoneGap build needs is some webfiles (html, js, css), static
+material (any images used in you app) and an xml configuration file
+(config.xml) placed in a directory named www. For example check out
+the www directory above.
+
+All the remaining files are simply used for transforming content into
+webfiles. In otherwords the www directy is a function of all the other
+files. The reason for this is its much easy to write
+
+```markdown
+
+#Pressure
+
+Pressure is equal to force per unit area.
+
+$$P=\frac{F}{A}$$
+
+Here is a diagram of the concept:
+
+![Diagram showing concept of pressure](pressure.png)
+
+![Animation showing concept of pressure](pressure.gif)
+
+Here is a list of things about pressure
+
+* pressure is a scalar quanitiy
+* its SI unit is the pascal
+* etc. etc.
+```
+
+Compared to this
+
+```html
+<p>Pressure is equal to force per unit area.</p>
+<p><br /><span class="math">$P=\frac{F}{A}$</span><br /></p>
+<p>Here is a diagram of the concept:</p>
+<div class="figure">
+<img src="pressure.png" alt="Diagram showing concept of pressure" /><p class="caption">Diagram showing concept of pressure</p>
+</div>
+<div class="figure">
+<img src="pressure.gif" alt="Animation showing concept of pressure" /><p class="caption">Animation showing concept of pressure</p>
+</div>
+<p>Here is a list of things about pressure</p>
+<ul>
+<li>pressure is a scalar quanitiy</li>
+<li>its SI unit is the pascal</li>
+<li>etc. etc.</li>
+</ul>
+```
 
 The webapp itself is self contained in the www directory. This is the
 directory phonegap build will look for.
