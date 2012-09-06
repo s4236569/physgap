@@ -3,8 +3,8 @@ title: Pressure
 author: Michael McClintock
 ---
 
-Pressure is technically defined as force per unit area and represented
-with an SI unit, the pascal.
+Pressure is defined as force per unit area and represented with an SI
+unit, the pascal.
 
 $$p=\frac{F}{A}$$
 
@@ -28,7 +28,7 @@ so why isn't it important when we talk about pressure? The reason is
 that the force is understood to act normal to the surface of the
 object on which the pressure acts.
 
-## Example: Ball in a bath tub
+## Example: Ball in a Bath Tub
 
 Imagine a tub of liquid (say water). Now just
 suppose that at every *point* in the tub the pressure is $10$ Pa. What

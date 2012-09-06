@@ -15,7 +15,7 @@
         <h1> PHYS1171
       <div data-role="content">
         <p> Welcome to PHYS1171 mobile content!
-        <p> Beloware some topics studied in PHYS1171:
+        <p> Below are some topics studied in PHYS1171:
         <ul data-role="listview" data-inset="true">
           <li>
             <a href="content/pressure.html">Pressure and Depth
