@@ -4,10 +4,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
       <meta name="format-detection" content="telephone=no" />
       <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-      <link rel="stylesheet" type="text/css" href="styles/index.css" />
       <link rel="stylesheet" type="text/css" href="styles/themes/default/jquery.mobile-1.1.1.css" />
-      <script type="text/javascript" src="scripts/jquery.js">
-      <script type="text/javascript" src="scripts/jquery.mobile-1.1.1.min.js">
+      <script type="text/javascript" src="scripts/jquery/jquery.js">
+      <script type="text/javascript" src="scripts/jquery/jquery.mobile-1.1.1.min.js">
       <script type="text/javascript" src="cordova-2.0.0.js">
       <title>Hello World
   <body>
@@ -18,4 +17,4 @@
         <p> This app stores some trial matrial for first year physics
         <p> Please select a class below:
         <ul data-role="listview" data-inset="true">
-          <li><a href="./PHYS1171.html">PHYS1171 - Physical Basis of Biological Systems
+          <li><a href="./PHYS1171.html">PHYS1171

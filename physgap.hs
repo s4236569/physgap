@@ -5,15 +5,20 @@ import BasicPrelude
 import Hakyll
 
 import Control.Arrow ( (>>>) )
+import Text.Pandoc
 
 config :: HakyllConfiguration
 config = HakyllConfiguration
     { destinationDirectory = "www"
     , storeDirectory       = "cache"
-    , ignoreFile           = (\p -> False)
+    , ignoreFile           = \p -> False
     , deployCommand        = "echo 'no deployment method yet'"
     , inMemoryCache        = True
     }
+
+-- pandocWriter :: WriterOptions
+-- pandocWriter = defaultWriterOptions
+--   { writerHTMLMathMethod = MathJax "scripts/mathjax/MathJax.js"}
 
 main :: IO ()
 main = hakyllWith config $ do
@@ -24,7 +29,7 @@ main = hakyllWith config $ do
     compile copyFileCompiler
 
   -- route scripts
-  match "scripts/*.js" $ do
+  match "scripts/**" $ do
     route idRoute
     compile copyFileCompiler
 
@@ -47,9 +52,14 @@ main = hakyllWith config $ do
   create "PHYS1171.html" $ constA mempty 
     >>> applyTemplateCompiler "templates/PHYS1171.hamlet"
 
+  
   match "content/*.md" $ do
     route .setExtension $ ".html"
     compile (pageCompiler >>> applyTemplateCompiler "templates/page.hamlet")
+
+  match "content/**.png" $ do
+    route idRoute
+    compile copyFileCompiler
 
   -- config.xml
   match "config.xml" $ route idRoute
