@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><meta name="format-detection" content="telephone=no"></meta>
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"></meta>
+<link rel="stylesheet" type="text/css" href="styles/themes/default/jquery.mobile-1.1.1.css"></link>
+<script type="text/javascript" src="../scripts/jquery/jquery.js"></script>
+<script type="text/javascript" src="../scripts/jquery/jquery.mobile-1.1.1.min.js"></script>
+<script type="text/javascript" src="../scripts/mathjax/MathJax.js?config=default"></script>
+<script type="text/javascript" src="../cordova-2.0.0.js"></script>
+<title> PhysGap</title>
+</meta>
+</head>
+<body><div data-role="page"><div data-role="header"><h1> Pressure</h1>
+</div>
+<div data-role="content"><p>Pressure is defined as force per unit area and represented with an SI unit, the pascal.</p>
+<p><span class="math">$p=\frac{F}{A}$</span></p>
+<p>Where <span class="math"><em>p</em></span> is the pressure, and <span class="math"><em>F</em></span> is the <em>magnitude</em> of force applied normal to the area <span class="math"><em>A</em></span>. This means pressure is a scalar quantity.</p>
+<p>But what exactly does pressure mean? And why is it useful? In the figure below 4 different surfaces are drawn each with the same pressure.</p>
+<div class="figure">
+<img src="pressure1.png"></img><p class="caption"></p>
+</div>
+<p>Like the diagram on the far right it’s often beneficial to think of pressure as a <em>scalar</em> value defined at at a point.</p>
+<p>You may wonder why pressure is a <em>scalar</em>, why it has no concept of direction. Direction is certainly important when considering forces (imagine if gravity wasn’t pulling you <em>down</em> towards the earth).</p>
+<p>so why isn’t it important when we talk about pressure? The reason is that the force is understood to act normal to the surface of the object on which the pressure acts.</p>
+<h2 id="example-1-ball-in-a-bath-tub">Example 1: Ball in a Bath Tub</h2>
+<p>Imagine a tub of liquid (say water). Now just suppose that at every <em>point</em> in the tub the pressure is <span class="math">10</span> Pa. What would happen if we put say a tennis ball right in the middle. In other words what would be the <em>net</em> force on the ball?</p>
+<div class="figure">
+<img src="pressure2.png"></img><p class="caption"></p>
+</div>
+<p>The figure above shows a small <em>patch</em> of area on the surface of the ball lets call it <span class="math"><em>A</em><sub><em>p</em></sub></span>. Now we know the pressure is <span class="math">10</span> pa, the force must be <span class="math">10 * <em>A</em><sub><em>p</em></sub></span> and its direction is normal to the surface. This means the force points straight towards the center of the ball.</p>
+<p>So what is the total force acting on the ball? If it’s not imediately obvious think about it?</p>
+<p>Its zero right? This is because for every small patch that causes a force toward the ball’s center there is <em>always</em> one on the other side of the ball that directly cancels it. So nothing would happen.</p>
+<h2 id="example-2-a-pressure-change">Example 2: A pressure change</h2>
+<p>Of course a real ball is unlikely to just sit in the middle of the tub. It will either sink or float and we will get to <em>why</em> in the next module.</p>
+<p>For now lets just make a small modification to the bath tub example. what would happen if the pressure on the left of the ball was greater than the pressure on the right? For some help look at the picture below</p>
+<div class="figure">
+<img src="pressure3.png"></img><p class="caption"></p>
+</div>
+<p>The balls surface hasn’t changed so all the forces still all point to the centre of the ball. But what has changed is that forces on the left hand side are all larger than the forces on the right. If we added up all the forces we would find that the net force points to the right. The ball would start moving that way.</p>
+<p>Here we can see that if we know what the pressure is at every point in a fluid we can predict what forces will act on a submerged object. Also we can see that a change in pressure also known as a pressure gradient or a pressure differential can cause motion. For example this is why water flows in a garden hose.</p>
+<!-- vim: set ft=pdc: -->
+
+</div>
+</div>
+</body>
+</html>
