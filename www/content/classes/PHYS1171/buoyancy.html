@@ -9,13 +9,11 @@
 });</script>
 <script type="text/javascript" charset="utf-8" src="../../../cordova.js"></script>
 <link rel="stylesheet" href="../../../styles/jquery.mobile-1.1.1-rc.1.css"></link>
-<script type="text/javascript" src="../../../scripts/jquery/jquery.mobile-1.1.1-rc.1.min.js"><script type="text/javascript"></script>
-function onLoad(){
-  document.addEventListener(&quot;deviceready&quot;, onDeviceReady, false);
+<script type="text/javascript" src="../../../scripts/jquery/jquery.mobile-1.1.1-rc.1.min.js"></script>
+<script type="text/javascript">function onLoad(){
+  document.addEventListener("deviceready", onDeviceReady, false);
 }
 function onDeviceReady() {
-  navigator.splashscreen.hide();
-  document.addEventListener(&quot;backbutton&quot;, onBackClickEvent, false);
 }</script>
 </head>
 <body onload="onLoad()"><div data-role="page" id="contentPage" data-add-back-btn="true"><script type="text/javascript">$('#contentPage').live('pageshow', function(event, ui) {

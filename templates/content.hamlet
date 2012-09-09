@@ -13,13 +13,11 @@
     <script type="text/javascript" charset="utf-8" src="/cordova.js">
     <link rel="stylesheet" href="/styles/jquery.mobile-1.1.1-rc.1.css" />
     <script type="text/javascript" src="/scripts/jquery/jquery.mobile-1.1.1-rc.1.min.js">
-        <script type="text/javascript">
+    <script type="text/javascript">
       \function onLoad(){
       \  document.addEventListener("deviceready", onDeviceReady, false);
       \}
       \function onDeviceReady() {
-      \  navigator.splashscreen.hide();
-      \  document.addEventListener("backbutton", onBackClickEvent, false);
       \}
   <body onload="onLoad()">
     <div data-role="page" id="contentPage" data-add-back-btn="true">
