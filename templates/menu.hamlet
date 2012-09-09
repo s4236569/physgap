@@ -14,6 +14,7 @@
     <script type="text/javascript" charset="utf-8" src="/scripts/cordova-2.0.0.js">
     <link rel="stylesheet" href="/styles/themes/default/jquery.mobile-1.1.1.min.css" />
     <script type="text/javascript" src="/scripts/jquery/jquery.mobile-1.1.1.min.js">
+    <link rel="stylesheet" href="/styles/fixtoolbars.css" />
 
   <script type="text/javascript">
     \function onLoad(){
