@@ -31,7 +31,6 @@ markupMarkdown = match allMD . group "marked-down" $
 
 -- take content, handle equations and build page
 buildContentPages = match isContent . group "content-pages" $ do
-    route idRoute
     ds <- resources
     forM_ ds $ \d -> 
       create d $ (require_ . depI $ d) >>> arr isEquations
