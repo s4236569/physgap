@@ -121,7 +121,7 @@ windows) is:
 1. Anyone can come along and write/modify content in markdown. See the
    content folder above (work in progress). This includes adding
    modules, tutorials etc. If there is media involved they simply put
-   their pics, movies etc. alongside their markdown files.
+   their pics, movies etc. in the static directory
 2. The website compiler builds the www directory
 3. Everything is pushed to Github
 4. PhoneGap Build is linked to the Github Repo. So it grabs the whole
