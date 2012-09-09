@@ -1,47 +1,13 @@
-<!DOCTYPE html>
-<html><head><title> PhysGap</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
-<meta name="viewport" content="user-scalable=no, width=device-width"></meta>
-<script type="text/javascript" src="../../../scripts/jquery/jquery.min.js"></script>
-<script type="text/javascript"> $(document).bind("mobileinit", function() {
-  $.support.cors = true;
-  $.mobile.allowCrossDomainPages = true;
-});</script>
-<script type="text/javascript" charset="utf-8" src="../../../cordova.js"></script>
-<link rel="stylesheet" href="../../../styles/jquery.mobile-1.1.1-rc.1.css"></link>
-<script type="text/javascript" src="../../../scripts/jquery/jquery.mobile-1.1.1-rc.1.min.js"></script>
-<script type="text/javascript">function onLoad(){
-  document.addEventListener("deviceready", onDeviceReady, false);
-}
-function onDeviceReady() {
-}</script>
-</head>
-<body><div data-role="page" id="contentPage" data-add-back-btn="true"><script type="text/javascript">$('#contentPage').live('pageshow', function(event, ui) {
-  var head = document.getElementsByTagName("head")[0], script;
-  script = document.createElement("script");
-  script.type = "text/javascript";
-  script.src  = "../../../scripts/mathjax/MathJax.js?config=default";
-  script.onload = callmj;
-  head.appendChild(script);
-});
-var mathjax_loaded = false;
-function callmj () {
-  if(mathjax_loaded)
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-  else{
-    MathJax.Hub.Startup.onload();
-    mathjax_loaded = true;
-  }
-}</script>
+<div class="contentPage" data-role="page" id="Pressure" data-add-back-btn="true"><script type="text/javascript" src="/scripts/loadmj.js"></script>
 <div data-role="header"><h1> Pressure</h1>
-<a class="ui-btn-right" href="../../../" data-icon="home">Home</a>
+<a class="ui-btn-right" href="#Classes" data-icon="home">Home</a>
 </div>
 <div data-role="content"><p>Pressure is defined as force per unit area and represented with an SI unit, the pascal.</p>
 <p>\(p=\frac{F}{A}\)</p>
 <p>Where \(p\) is the pressure, and \(F\) is the <em>magnitude</em> of force applied normal to the area \(A\). This means pressure is a scalar quantity.</p>
 <p>But what exactly does pressure mean? And why is it useful? In the figure below 4 different surfaces are drawn each with the same pressure.</p>
 <div class="figure">
-<img src="pressure1.png"></img><p class="caption"></p>
+<img src="/static/pressure1.png" /><p class="caption"></p>
 </div>
 <p>Like the diagram on the far right it’s often beneficial to think of pressure as a <em>scalar</em> value defined at at a point.</p>
 <p>You may wonder why pressure is a <em>scalar</em>, why it has no concept of direction. Direction is certainly important when considering forces (imagine if gravity wasn’t pulling you <em>down</em> towards the earth).</p>
@@ -49,7 +15,7 @@ function callmj () {
 <h2 id="example-1-ball-in-a-bath-tub">Example 1: Ball in a Bath Tub</h2>
 <p>Imagine a tub of liquid (say water). Now just suppose that at every <em>point</em> in the tub the pressure is \(10\) Pa. What would happen if we put say a tennis ball right in the middle. In other words what would be the <em>net</em> force on the ball?</p>
 <div class="figure">
-<img src="pressure2.png"></img><p class="caption"></p>
+<img src="/static/pressure2.png" /><p class="caption"></p>
 </div>
 <p>The figure above shows a small <em>patch</em> of area on the surface of the ball lets call it \(A_p\). Now we know the pressure is \(10\) pa, the force must be \(10*A_p\) and its direction is normal to the surface. This means the force points straight towards the center of the ball.</p>
 <p>So what is the total force acting on the ball? If it’s not imediately obvious think about it?</p>
@@ -58,7 +24,7 @@ function callmj () {
 <p>Of course a real ball is unlikely to just sit in the middle of the tub. It will either sink or float and we will get to <em>why</em> in the next module.</p>
 <p>For now lets just make a small modification to the bath tub example. what would happen if the pressure on the left of the ball was greater than the pressure on the right? For some help look at the picture below</p>
 <div class="figure">
-<img src="pressure3.png"></img><p class="caption"></p>
+<img src="/static/pressure3.png" /><p class="caption"></p>
 </div>
 <p>The balls surface hasn’t changed so all the forces still all point to the centre of the ball. But what has changed is that forces on the left hand side are all larger than the forces on the right. If we added up all the forces we would find that the net force points to the right. The ball would start moving that way.</p>
 <p>Here we can see that if we know what the pressure is at every point in a fluid we can predict what forces will act on a submerged object. Also we can see that a change in pressure also known as a pressure gradient or a pressure differential can cause motion. For example this is why water flows in a garden hose.</p>
@@ -66,5 +32,3 @@ function callmj () {
 
 </div>
 </div>
-</body>
-</html>

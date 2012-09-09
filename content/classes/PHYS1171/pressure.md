@@ -1,6 +1,7 @@
 ---
 title: Pressure
 author: Michael McClintock
+equations: true
 ---
 
 Pressure is defined as force per unit area and represented with an SI
@@ -15,7 +16,7 @@ But what exactly does pressure mean? And why is it useful? In the
 figure below 4 different surfaces are drawn each with the same
 pressure.
 
-![ ](pressure1.png)
+![ ](/static/pressure1.png)
 
 
 Like the diagram on the far right it's often beneficial to think of
@@ -36,7 +37,7 @@ suppose that at every *point* in the tub the pressure is $10$ Pa. What
 would happen if we put say a tennis ball right in the middle. In other
 words what would be the *net* force on the ball? 
 
-![ ](pressure2.png)
+![ ](/static/pressure2.png)
 
 The figure above shows a small *patch* of area on the surface of the
 ball lets call it $A_p$. Now we know the pressure is $10$ pa, the
@@ -61,7 +62,7 @@ what would happen if the pressure on the left of the ball was greater
 than the pressure on the right? For some help look at the picture
 below
 
-![ ](pressure3.png)
+![ ](/static/pressure3.png)
 
 The balls surface hasn't changed so all the forces still all point to
 the centre of the ball. But what has changed is that forces on the

@@ -2,7 +2,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 import BasicPrelude hiding ( group, groupBy )
-import Control.Arrow ( (>>>), arr, returnA )
+import Control.Arrow ( (>>>), (|||), arr, returnA )
 import Text.Pandoc
 import Hakyll
 import Helpers
@@ -26,59 +26,65 @@ isMenu = allMD ++ predicate isParent
 loadTemplates = match "templates/*" $ compile templateCompiler
 
 -- use pandoc to markup all markdown content
-markupMarkdown = match allMD . group "pages" $ 
+markupMarkdown = match allMD . group "marked-down" $ 
   compile $ pageCompilerWith defaultHakyllParserState pandocWriter
 
--- take content, apply templates and route to www
-renderContent = match isContent . group "rendered-content" $ do
-    route . setExtension $ ".html"
+-- take content, handle equations and build page
+buildContentPages = match isContent . group "content-pages" $ do
+    route idRoute
     ds <- resources
     forM_ ds $ \d -> 
-      create d $ (require_ . depI $ d) &&& returnA
-        >>> setFieldA "mathjaxPath" jaxRelPathA
+      create d $ (require_ . depI $ d) >>> arr isEquations
+        >>> (mathjaxA ||| arr (setField "mathjax" ""))
+        >>> addValidId
         >>> applyTemplateCompiler "templates/content.hamlet"
-        >>> relativizeUrlsCompiler 
   where 
-    depI = setGroup (Just "pages")
-    jaxPathA = constA ("scripts/mathjax/MathJax.js" :: Identifier String)
-      >>> getRouteFor >>> arr ((++"?config=default") . toUrl . fromMaybe "")
-    toSiteRootA = getRoute >>> arr (toSiteRoot . toUrl . fromMaybe "")
-    jaxRelPathA = toSiteRootA &&& jaxPathA >>> arr (uncurry (++))
-      
+    depI = setGroup (Just "marked-down")
+    mathjaxA = arr (\p -> (p, p)) >>> setFieldA "mathjax" loadJaxScript
+    isEquations p
+      | getField "equations" p == "true" = Left p
+      | otherwise = Right p
 
--- create menu items for all html pages
-createMenuItems = match allMD . group "menu-items" $ do
+      
+-- create menu items for all content including menus
+buildMenuItems = match allMD . group "menu-items" $ do
     ds <- resources
     forM_ ds $ \d -> 
       create d $ (require_ . depI $ d)
-        >>> (routeArrow d &&& nameArrow)
+        >>> (arr (getField "title") &&& arr validId)
         >>> arr li
         >>> arr fromBody
   where
-    depI = setGroup (Just "pages")
-    renI d
-      | isParent d = setGroup (Just "rendered-menus") d
-      | otherwise  = setGroup (Just "rendered-content") d
-    li (Just r, n) = "<li><a href=\"/"++r++"\">"++n++"</a></li>"
-    li _ = ""
-    routeArrow d = constA (renI d) >>> getRouteFor
-    nameArrow = arr (getField "title")
+    depI = setGroup (Just "marked-down")
+    li (n,v) = "<li><a href=\"#"++v++"\">"++n++"</a></li>"
     
--- get menu content, build menu, apply template and route 
-renderMenus = match isMenu . group "rendered-menus" $ do 
-    match "content/classes/*" (route $ constRoute "index.html")
-    route . setExtension $ ".html"
+
+-- get menu content, the menu items and build menu
+buildMenuPages = match isMenu . group "menu-pages" $ do 
     ds <- resources
     forM_ ds $ \d -> 
       create d $ (require_ . depI $ d) &&& returnA
         >>> setMenuArrow d
+        >>> addValidId
         >>> applyTemplateCompiler "templates/menu.hamlet"
-        >>> relativizeUrlsCompiler
   where 
-    depI = setGroup (Just "pages")
+    depI = setGroup (Just "marked-down")
     grpI d = inGroup (Just "menu-items") ++ predicate (inMenu d) 
     setMenuArrow d = setFieldA "menu" $ 
       requireAll_ (grpI d) >>> arr mconcat >>> arr pageBody
+
+-- build the app from all the other content route to index.html
+createHTML = do
+  loadTemplates
+  markupMarkdown
+  buildMenuItems
+  buildContentPages
+  buildMenuPages
+  match "index.html" $ route idRoute
+  create "index.html" $ (requireAll_ (inGroup $ Just "content-pages") 
+    &&& requireAll_ (inGroup $ Just "menu-pages"))
+    >>> arr (\(cs, ms) -> concat (ms ++ cs))
+    >>> applyTemplateCompiler "templates/wrapper.hamlet"
 
 copyRoute = do
   route idRoute
@@ -92,8 +98,4 @@ main = hakyllWith config $ do
   match "scripts/**" copyRoute
   match "static/**.png" copyRoute  -- pngs only
   match "content/**.png" copyRoute -- copy pngs
-  loadTemplates
-  markupMarkdown
-  createMenuItems
-  renderContent
-  renderMenus
+  createHTML
