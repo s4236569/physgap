@@ -84,25 +84,14 @@ copyRoute = do
   route idRoute
   compile copyFileCompiler
 
-
-
--- copyRoute all non-markdown content files
-routeStaticContent = do
-  match "content/**.png" copyRoute -- copy pngs
-  return ()
-
-routeStyles = match "styles/**" copyRoute
-routeScripts = match "scripts/**" copyRoute
-routeStatic = match "static/**.png" copyRoute  -- pngs only
-routeConfig = match "config.xml" copyRoute
- 
 main :: IO ()
 main = hakyllWith config $ do
-  routeConfig
-  routeStyles
-  routeScripts
-  routeStatic
-  routeStaticContent
+  match "config.xml" copyRoute
+  match "cordova.js" copyRoute
+  match "styles/**" copyRoute
+  match "scripts/**" copyRoute
+  match "static/**.png" copyRoute  -- pngs only
+  match "content/**.png" copyRoute -- copy pngs
   loadTemplates
   markupMarkdown
   createMenuItems

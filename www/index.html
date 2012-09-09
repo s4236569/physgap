@@ -7,10 +7,9 @@
   $.support.cors = true;
   $.mobile.allowCrossDomainPages = true;
 });</script>
-<script type="text/javascript" charset="utf-8" src="./scripts/cordova-2.0.0.js"></script>
+<script type="text/javascript" charset="utf-8" src="./cordova.js"></script>
 <link rel="stylesheet" href="./styles/jquery.mobile-1.1.1-rc.1.css"></link>
 <script type="text/javascript" src="./scripts/jquery/jquery.mobile-1.1.1-rc.1.min.js"></script>
-</head>
 <script type="text/javascript">function onLoad(){
   document.addEventListener("deviceready", onDeviceReady, false);
 }
@@ -18,8 +17,9 @@ function onDeviceReady() {
   navigator.splashscreen.hide();
   document.addEventListener("backbutton", onBackClickEvent, false);
 }</script>
-<body onload="onload()"><div data-role="page" id="pageMenu" data-add-back-btn="true"><div data-role="header"><h1> Classes</h1>
-<a class="ui-btn-right" href="./index.html" data-icon="home">Home</a>
+</head>
+<body onload="onLoad()"><div data-role="page" id="pageMenu" data-add-back-btn="true"><div data-role="header"><h1> Classes</h1>
+<a class="ui-btn-right" href="./" data-icon="home">Home</a>
 </div>
 <div data-role="content"><p>This app stores some trial matrial for first year physics</p>
 <p>Please select a class below:</p>
