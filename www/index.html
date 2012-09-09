@@ -34,14 +34,7 @@ function callmj () {
 <!-- vim: set ft=pdc: -->
 
 
-<ul data-role="listview" data-inset="true"><li><a href="#Buoyancy">Buoyancy</a></li><li><a href="#Extra">Extra</a></li><li><a href="#Nonviscous">Nonviscous</a></li><li><a href="#Pressure">Pressure</a></li></ul>
-</div>
-</div>
-<div data-role="page" id="Extra" data-add-back-btn="true"><div data-role="header"><h1> Extra</h1>
-<a class="ui-btn-right" href="#Classes" data-icon="home">Home</a>
-</div>
-<div data-role="content"><p>Extra Folder for test</p>
-<ul data-role="listview" data-inset="true"><li><a href="#Extra1">Extra1</a></li></ul>
+<ul data-role="listview" data-inset="true"><li><a href="#Buoyancy">Buoyancy</a></li><li><a href="#Nonviscous">Nonviscous</a></li><li><a href="#Pressure">Pressure</a></li></ul>
 </div>
 </div>
 <div data-role="page" id="Classes" data-add-back-btn="true"><div data-role="header"><h1> Classes</h1>
@@ -52,7 +45,14 @@ function callmj () {
 <!-- vim: set ft=pdc: -->
 
 
-<ul data-role="listview" data-inset="true"><li><a href="#PHYS1171">PHYS1171</a></li></ul>
+<ul data-role="listview" data-inset="true"><li><a href="#PHYS1171">PHYS1171</a></li><li><a href="#Test">Test</a></li></ul>
+</div>
+</div>
+<div data-role="page" id="Test" data-add-back-btn="true"><div data-role="header"><h1> Test</h1>
+<a class="ui-btn-right" href="#Classes" data-icon="home">Home</a>
+</div>
+<div data-role="content"><p>Folder for testing</p>
+<ul data-role="listview" data-inset="true"><li><a href="#Pandocequationtests">Pandoc equation tests</a></li></ul>
 </div>
 </div>
 <div class="contentPage" data-role="page" id="Buoyancy" data-add-back-btn="true">
@@ -61,15 +61,6 @@ function callmj () {
 </div>
 <div data-role="content"><h1 id="buoyancy">Buoyancy</h1>
 <p>Buoyancy is hard to spell</p></div>
-</div>
-<div class="contentPage" data-role="page" id="Extra1" data-add-back-btn="true"><script type="text/javascript" src="./scripts/loadmj.js"></script>
-<div data-role="header"><h1> Extra1</h1>
-<a class="ui-btn-right" href="#Classes" data-icon="home">Home</a>
-</div>
-<div data-role="content"><p>Here is a big math equation</p>
-<p>\(x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}\)</p>
-<p>and another</p>
-<p>\(\nabla^2 g = 4\pi G \rho\)</p></div>
 </div>
 <div class="contentPage" data-role="page" id="Nonviscous" data-add-back-btn="true">
 <div data-role="header"><h1> Nonviscous</h1>
@@ -111,6 +102,19 @@ function callmj () {
 <!-- vim: set ft=pdc: -->
 
 </div>
+</div>
+<div class="contentPage" data-role="page" id="Pandocequationtests" data-add-back-btn="true"><script type="text/javascript" src="./scripts/loadmj.js"></script>
+<div data-role="header"><h1> Pandoc equation tests</h1>
+<a class="ui-btn-right" href="#Classes" data-icon="home">Home</a>
+</div>
+<div data-role="content"><p>\(a^2 + b^2 = c^2\)</p>
+<p>\(v(t) = v_0 + \frac{1}{2}at^2\)</p>
+<p>\(\gamma = \frac{1}{\sqrt{1 - v^2/c^2}}\)</p>
+<p>\(\exists x \forall y (Rxy \equiv Ryx)\)</p>
+<p>\(p \wedge q \models p\)</p>
+<p>\(\Box\diamond p\equiv\diamond p\)</p>
+<p>\(\int_{0}^{1} x dx = \left[ \frac{1}{2}x^2 \right]_{0}^{1} = \frac{1}{2}\)</p>
+<p>\(e^x = \sum_{n=0}^\infty \frac{x^n}{n!} = \lim_{n\rightarrow\infty} (1+x/n)^n\)</p></div>
 </div>
 </body>
 </html>

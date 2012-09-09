@@ -1,7 +1,7 @@
 ---
-title: Extra
+title: Test
 author: Michael McClintock
 equations: false
 ---
 
-Extra Folder for test
+Folder for testing 
