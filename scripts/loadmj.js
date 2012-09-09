@@ -9,7 +9,7 @@ $('.contentPage').live('pageshow', function(event, ui) {
   head.appendChild(script);
   script = document.createElement("script");
   script.type = "text/javascript";
-  script.src  = "/scripts/mathjax/MathJax.js?config=default";
+  script.src  = "./scripts/mathjax/MathJax.js?config=default";
   script.onload = callmj;
   head.appendChild(script);
 });
