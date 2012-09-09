@@ -34,10 +34,17 @@ renderContent = match isContent . group "rendered-content" $ do
     route . setExtension $ ".html"
     ds <- resources
     forM_ ds $ \d -> 
-      create d $ (require_ . depI $ d)
+      create d $ (require_ . depI $ d) &&& returnA
+        >>> setFieldA "mathjaxPath" jaxRelPathA
         >>> applyTemplateCompiler "templates/content.hamlet"
         >>> relativizeUrlsCompiler 
-  where depI = setGroup (Just "pages")
+  where 
+    depI = setGroup (Just "pages")
+    jaxPathA = constA ("scripts/mathjax/MathJax.js" :: Identifier String)
+      >>> getRouteFor >>> arr ((++"?config=default") . toUrl . fromMaybe "")
+    toSiteRootA = getRoute >>> arr (toSiteRoot . toUrl . fromMaybe "")
+    jaxRelPathA = toSiteRootA &&& jaxPathA >>> arr (uncurry (++))
+      
 
 -- create menu items for all html pages
 createMenuItems = match allMD . group "menu-items" $ do
@@ -77,7 +84,14 @@ copyRoute = do
   route idRoute
   compile copyFileCompiler
 
-routeStyles = match "style/**" copyRoute
+
+
+-- copyRoute all non-markdown content files
+routeStaticContent = do
+  match "content/**.png" copyRoute -- copy pngs
+  return ()
+
+routeStyles = match "styles/**" copyRoute
 routeScripts = match "scripts/**" copyRoute
 routeStatic = match "static/**.png" copyRoute  -- pngs only
 routeConfig = match "config.xml" copyRoute
@@ -88,6 +102,7 @@ main = hakyllWith config $ do
   routeStyles
   routeScripts
   routeStatic
+  routeStaticContent
   loadTemplates
   markupMarkdown
   createMenuItems

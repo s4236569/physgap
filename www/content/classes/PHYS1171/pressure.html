@@ -2,18 +2,18 @@
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><meta name="format-detection" content="telephone=no"></meta>
 <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"></meta>
 <link rel="stylesheet" type="text/css" href="styles/themes/default/jquery.mobile-1.1.1.css"></link>
-<script type="text/javascript" src="../scripts/jquery/jquery.js"></script>
-<script type="text/javascript" src="../scripts/jquery/jquery.mobile-1.1.1.min.js"></script>
-<script type="text/javascript" src="../scripts/mathjax/MathJax.js?config=default"></script>
-<script type="text/javascript" src="../cordova-2.0.0.js"></script>
-<title> PhysGap</title>
+<script type="text/javascript" src="../../../scripts/jquery/jquery.js"></script>
+<script type="text/javascript" src="../../../scripts/jquery/jquery.mobile-1.1.1.min.js"></script>
+<script type="text/javascript" src="../../../scripts/cordova-2.0.0.js"></script>
 </meta>
 </head>
-<body><div data-role="page"><div data-role="header"><h1> Pressure</h1>
+<title> PhysGap</title>
+<body><div data-role="page" id="contentPage" data-add-back-btn="true"><div data-role="header"><h1> Pressure</h1>
+<a class="ui-btn-right" href="../../../" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
 </div>
 <div data-role="content"><p>Pressure is defined as force per unit area and represented with an SI unit, the pascal.</p>
-<p><span class="math">$p=\frac{F}{A}$</span></p>
-<p>Where <span class="math"><em>p</em></span> is the pressure, and <span class="math"><em>F</em></span> is the <em>magnitude</em> of force applied normal to the area <span class="math"><em>A</em></span>. This means pressure is a scalar quantity.</p>
+<p>\(p=\frac{F}{A}\)</p>
+<p>Where \(p\) is the pressure, and \(F\) is the <em>magnitude</em> of force applied normal to the area \(A\). This means pressure is a scalar quantity.</p>
 <p>But what exactly does pressure mean? And why is it useful? In the figure below 4 different surfaces are drawn each with the same pressure.</p>
 <div class="figure">
 <img src="pressure1.png"></img><p class="caption"></p>
@@ -22,11 +22,11 @@
 <p>You may wonder why pressure is a <em>scalar</em>, why it has no concept of direction. Direction is certainly important when considering forces (imagine if gravity wasn’t pulling you <em>down</em> towards the earth).</p>
 <p>so why isn’t it important when we talk about pressure? The reason is that the force is understood to act normal to the surface of the object on which the pressure acts.</p>
 <h2 id="example-1-ball-in-a-bath-tub">Example 1: Ball in a Bath Tub</h2>
-<p>Imagine a tub of liquid (say water). Now just suppose that at every <em>point</em> in the tub the pressure is <span class="math">10</span> Pa. What would happen if we put say a tennis ball right in the middle. In other words what would be the <em>net</em> force on the ball?</p>
+<p>Imagine a tub of liquid (say water). Now just suppose that at every <em>point</em> in the tub the pressure is \(10\) Pa. What would happen if we put say a tennis ball right in the middle. In other words what would be the <em>net</em> force on the ball?</p>
 <div class="figure">
 <img src="pressure2.png"></img><p class="caption"></p>
 </div>
-<p>The figure above shows a small <em>patch</em> of area on the surface of the ball lets call it <span class="math"><em>A</em><sub><em>p</em></sub></span>. Now we know the pressure is <span class="math">10</span> pa, the force must be <span class="math">10 * <em>A</em><sub><em>p</em></sub></span> and its direction is normal to the surface. This means the force points straight towards the center of the ball.</p>
+<p>The figure above shows a small <em>patch</em> of area on the surface of the ball lets call it \(A_p\). Now we know the pressure is \(10\) pa, the force must be \(10*A_p\) and its direction is normal to the surface. This means the force points straight towards the center of the ball.</p>
 <p>So what is the total force acting on the ball? If it’s not imediately obvious think about it?</p>
 <p>Its zero right? This is because for every small patch that causes a force toward the ball’s center there is <em>always</em> one on the other side of the ball that directly cancels it. So nothing would happen.</p>
 <h2 id="example-2-a-pressure-change">Example 2: A pressure change</h2>
@@ -40,6 +40,40 @@
 <!-- vim: set ft=pdc: -->
 
 </div>
+<script type="text/javascript">$('#contentPage').live('pageshow', function(event, ui) {
+  (function () {
+    var head = document.getElementsByTagName("head")[0], script;
+    script = document.createElement("script");
+    script.type = "text/x-mathjax-config";
+    script[(window.opera ? "innerHTML" : "text")] =
+      "MathJax.Hub.Config({\n" +
+      "  extensions: ['tex2jax.js'],\n" +
+      "  jax: ['input/TeX', 'output/HTML-CSS'],\n" +
+      "  tex2jax: {\n" +
+      "    inlineMath:  [['\\\\(','\\\\)']],\n" +
+      "    displayMath: [['\\\\[','\\\\]']],\n" +
+      "    processEscapes: true\n"+
+      "  },\n" +
+      "  'HTML-CSS': { availableFonts: ['TeX'] }\n" +
+      "});"
+    head.appendChild(script);
+    script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "../../../scripts/mathjax/MathJax.js?config=default";
+    script.onload = callmj;
+    head.appendChild(script);
+  })();
+});
+
+var mathjax_loaded = false;
+function callmj() {
+  if(mathjax_loaded)
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+  else{
+    MathJax.Hub.Startup.onload();
+    mathjax_loaded = true;
+  }
+}</script>
 </div>
 </body>
 </html>
