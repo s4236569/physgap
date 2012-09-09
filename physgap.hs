@@ -84,6 +84,7 @@ createHTML = do
     &&& requireAll_ (inGroup $ Just "menu-pages"))
     >>> arr (\(cs, ms) -> concat (ms ++ cs))
     >>> applyTemplateCompiler "templates/wrapper.hamlet"
+    >>> relativizeUrlsCompiler
 
 copyRoute = do
   route idRoute
