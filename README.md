@@ -121,7 +121,7 @@ windows) is:
 1. Anyone can come along and write/modify content in markdown. See the
    content folder above (work in progress). This includes adding
    modules, tutorials etc. If there is media involved they simply put
-   their pics, movies etc. in the static folder.
+   their pics, movies etc. alongside their markdown files.
 2. The website compiler builds the www directory
 3. Everything is pushed to Github
 4. PhoneGap Build is linked to the Github Repo. So it grabs the whole
@@ -135,15 +135,15 @@ windows) is:
 * scripts. Place for all the javascript. This includes things like
   JQuery Mobile for gui elements. Mathjax for equation rendering. Any
   other dynamic library
-* static. Pretty much just for images and other embedded media. Any
-  images referenced from the markdown goes here. Things like the icons
-  for the apps and splash screens also go here.
-* styles. All style sheets go here. JQuery-mobile provides some nice
-  defaults.
+* static. Pretty much just for images and other embedded media. 
+  Things like the icons for the apps and splash screens also go here.
+* styles. All style sheets go here. JQuery-mobile provides good defaults
 * templates. This is where all the non-content bits of the web pages
   go. Basically the content gets inserted into the templates to
   produce complete html.
 * www . The output folder. Used by phonegap build to create the apps
 * README.md. This file
-* physgap.hs. tells the "website compiler" what to do
+* physgap.hs. Haskell file which describes how the www folder is 
+  created. Build this file with GHC to get the website compiler.
+  To build the website run ./physgap rebuild
 
