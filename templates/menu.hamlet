@@ -13,8 +13,7 @@
     <div data-role="page" id="pageMenu" data-add-back-btn="true">
       <div data-role="header">
         <h1> #{title}
-        <a href="/" class="ui-btn-right" data-icon="home"
-            data-iconpos="notext" data-direction="reverse">Home
+        <a href="/index.html" class="ui-btn-right" data-icon="home">Home
       <div data-role="content">
         #{body}
         <ul data-role="listview" data-inset="true">

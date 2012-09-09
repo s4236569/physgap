@@ -357,6 +357,122 @@ MathJax.Hub.Config({
   
   //============================================================================
   //
+  //  These parameters control the asciimath2jax preprocessor (when you have included
+  //  "asciimath2jax.js" in the extensions list above).
+  //
+  asciimath2jax: {
+
+    //
+    //  The delimiters that surround asciimath expressions.  The first in each
+    //  pair is the initial delimiter and the second is the terminal delimiter.
+    //
+    delimiters: [
+      ['`','`']
+    ],
+
+    //
+    //  This array lists the names of the tags whose contents should not be
+    //  processed by asciimath2jax (other than to look for ignore/process classes
+    //  as listed below).  You can add to (or remove from) this list to prevent
+    //  MathJax from processing mathematics in specific contexts.
+    //
+    skipTags: ["script","noscript","style","textarea","pre","code"],
+
+    //
+    //  This is the class name used to mark elements whose contents should
+    //  not be processed by asciimath2jax (other than to look for the
+    //  processClass pattern below).  Note that this is a regular
+    //  expression, and so you need to be sure to quote any regexp special
+    //  characters.  The pattern is automatically preceeded by '(^| )(' and
+    //  followed by ')( |$)', so your pattern will have to match full words
+    //  in the class name.  Assigning an element this class name will
+    //  prevent `asciimath2jax` from processing its contents.
+    //
+    ignoreClass: "asciimath2jax_ignore",
+
+    //
+    //  This is the class name used to mark elements whose contents SHOULD
+    //  be processed by asciimath2jax.  This is used to turn on processing
+    //  within tags that have been marked as ignored or skipped above.
+    //  Note that this is a regular expression, and so you need to be sure
+    //  to quote any regexp special characters.  The pattern is
+    //  automatically preceeded by '(^| )(' and followed by ')( |$)', so
+    //  your pattern will have to match full words in the class name.  Use
+    //  this to restart processing within an element that has been marked
+    //  as ignored above.
+    //
+    processClass: "asciimath2jax_process",
+    
+    //  Controls whether asciimath2jax inserts MathJax_Preview spans to make a
+    //  preview available, and what preview to use, when it locates in-line
+    //  and display mathetics on the page.  The default is "AsciiMath", which
+    //  means use the AsciiMath code as the preview (until it is processed by
+    //  MathJax).  Set to "none" to prevent the previews from being
+    //  inserted (the math will simply disappear until it is typeset).  Set
+    //  to an array containing the description of an HTML snippet in order
+    //  to use the same preview for all equations on the page (e.g., you
+    //  could have it say "[math]" or load an image).
+    //  
+    //  E.g.,     preview: ["[math]"],
+    //  or        preview: [["img",{src: "http://myserver.com/images/mypic.jpg"}]]
+    //  
+    preview: "AsciiMath"
+    
+  },
+  
+  //============================================================================
+  //
+  //  These parameters control the mml2jax preprocessor (when you have included
+  //  "mml2jax.js" in the extensions list above).
+  //
+  mml2jax: {
+    
+    //
+    //  Controls whether mml2jax inserts MathJax_Preview spans to make a
+    //  preview available, and what preview to use, whrn it locates
+    //  mathematics on the page.  The default is "alttext", which means use
+    //  the <math> tag's alttext attribute as the preview (until it is
+    //  processed by MathJax), if the tag has one.  Set to "none" to
+    //  prevent the previews from being inserted (the math will simply
+    //  disappear until it is typeset).  Set to an array containing the
+    //  description of an HTML snippet in order to use the same preview for
+    //  all equations on the page (e.g., you could have it say "[math]" or
+    //  load an image).
+    //  
+    //  E.g.,     preview: ["[math]"],
+    //  or        preview: [["img",{src: "http://myserver.com/images/mypic.jpg"}]]
+    //  
+    preview: "alttext"
+    
+  },
+  
+  //============================================================================
+  //
+  //  These parameters control the jsMath2jax preprocessor (when you have included
+  //  "jsMath2jax.js" in the extensions list above).
+  //
+  jsMath2jax: {
+    
+    //
+    //  Controls whether jsMath2jax inserts MathJax_Preview spans to make a
+    //  preview available, and what preview to use, when it locates
+    //  mathematics on the page.  The default is "TeX", which means use the
+    //  TeX code as the preview (until it is processed by MathJax).  Set to
+    //  "none" to prevent the previews from being inserted (the math will
+    //  simply disappear until it is typeset).  Set to an array containing
+    //  the description of an HTML snippet in order to use the same preview
+    //  for all equations on the page (e.g., you could have it say "[math]"
+    //  or load an image).
+    //  
+    //  E.g.,     preview: ["[math]"],
+    //  or        preview: [["img",{src: "http://myserver.com/images/mypic.jpg"}]]
+    //  
+    preview: "TeX"
+    
+  },
+
+  //============================================================================
+  //
   //  These parameters control the TeX input jax.
   //
   TeX: {
@@ -442,6 +558,39 @@ MathJax.Hub.Config({
     
   },
 
+  //============================================================================
+  //
+  //  These parameters control the AsciiMath input jax.
+  //
+  AsciiMath: {
+    //
+    //  Determines whether limits are placed above and below operators,
+    //  or next to them.  (AsciiMath doesn't have separate in-line and
+    //  display modes like TeX and MathML do, so this is the only control
+    //  you have over its output)
+    //
+    displaystyle: true,
+    
+    //
+    //  The character to use for decimal places when scanning for a number.
+    //  If you change it to ",", beware of things like "(1,2)" which would need
+    //  to be changed to "(1, 2)" to be parsed correctly.
+    // 
+    decimal: "."
+  },
+  
+  //============================================================================
+  //
+  //  These parameters control the MathML input jax.
+  //
+  MathML: {
+    //
+    //  This specifies whether to use TeX spacing or MathML spacing when the
+    //  HTML-CSS output jax is used.
+    //
+    useMathMLspacing: false
+  },
+  
   //============================================================================
   //
   //  These parameters control the HTML-CSS output jax.
@@ -610,6 +759,178 @@ MathJax.Hub.Config({
   
   //============================================================================
   //
+  //  These parameters control the NativeMML output jax.
+  //
+  NativeMML: {
+
+    //
+    //  This controls the global scaling of mathematics as compared to the 
+    //  surrounding text.  Values between 100 and 133 are usually good choices.
+    //
+    scale: 100,
+
+    //
+    //  Don't allow the matching of math text to surrounding text to use a scaling
+    //  factor smaller than this.
+    //
+    minScaleAdjust: 50,
+    
+    //
+    //  This allows you to define or modify the styles used to display
+    //  various math elements created by MathJax.
+    //  
+    //  Example:
+    //      styles: {
+    //        ".MathJax_MathML": {
+    //          color: "red"         //    MathML is in red
+    //        }
+    //      }
+    //
+    styles: {}
+  },
+  
+  //============================================================================
+  //
+  //  These parameters control the SVG output jax.
+  //
+  "SVG": {
+    
+    //
+    //  This controls the global scaling of mathematics as compared to the 
+    //  surrounding text.  Values between 100 and 133 are usually good choices.
+    //
+    scale: 100,
+    
+    //
+    //  Don't allow the matching of math text to surrounding text to use a scaling
+    //  factor smaller than this.
+    //
+    minScaleAdjust: 50,
+    
+    //
+    //  This specifies the font to use for SVG output (currently the only
+    //  one available)
+    //
+    font: "TeX",
+    
+    //
+    //  This is the stroke width to use for all character paths (1em = 1000
+    //  units).  This is a cheap way of getting slightly lighter or darker
+    //  characters
+    //
+    blacker: 10,
+    
+    //
+    //  This is the font-family CSS value used for characters that are not
+    //  in the selected font.  IE will stop looking after the first font
+    //  that exists on the system (even if it doesn't contain the needed
+    //  character), so order these carefully.
+    //  
+    undefinedFamily: "STIXGeneral,'Arial Unicode MS',serif",
+
+    //
+    //  This setting controls whether <mtext> elements will be typeset
+    //  using the math fonts or the font of the surrounding text.  When
+    //  false, the mathvariant="normal" font will be used; when true, 
+    //  the font will be inherited from the surrounding paragraph.
+    //  
+    mtextFontInherit: false,
+
+    //
+    //  This controls whether the MathML structure is retained and CSS
+    //  classes are added to mark the original MathML elements (as in the
+    //  HTML-CSS output).  By default, the SVG output jax removes unneeded
+    //  nesting in order to produce a more efficient markup, but if you
+    //  want to use CSS to style the elements as if they were MathML, you
+    //  might need to set this to true.
+    //  
+    addMMLclasses: false,
+
+    //
+    //  These values control how "chunky" the display of mathematical
+    //  expressions will be.
+    //  
+    //  EqnChunk is the number of equations that will be typeset before
+    //  they appear on screen.  Larger values make for less visual flicker
+    //  as the equations are drawn, but also mean longer delays before the
+    //  reader sees anything.
+    //  
+    //  EqChunkFactor is the factor by which the EqnChunk will grow after each
+    //  chunk is displayed.
+    //  
+    //  EqChunkDelay is the time (in milliseconds) to delay between chunks
+    //  (to allow the browser to respond to other user interaction).
+    //  
+    //  Set EqnChunk to 1, EqnChunkFactor to 1, and EwnChunkDelay to 10 to get
+    //  the behavior from MathJax v1.1 and below.
+    //
+    EqnChunk: 50,
+    EqnChunkFactor: 1.5,
+    EqnChunkDelay: 100,
+
+    //
+    //  These settings control automatic line breaking.  It is off by
+    //  default, so only explicit line breaks are performed (via
+    //  linebreak="newline" attributes on <mo> and <mspace> elements).  To
+    //  perform automatic line breaking on line expressions, set
+    //  'automatic' to 'true' below.  The line breaks will be applied via a
+    //  penalty-based heuristic, which does well, but isn't perfect.  You
+    //  might need to use linebreak="goodbreak" or linebreak="badbreak" by
+    //  hand in order to get better effects.  It is also possible to modify
+    //  the penalty values; contact the MathJax user's forum for details.
+    //  
+    linebreaks: {
+      
+      //
+      //  This controls the automatic breaking of expressions:
+      //    when false, only process linebreak="newline",
+      //    when true, line breaks are inserted automatically in long expressions.
+      //
+      automatic: false,
+
+      //
+      //  This controls how wide the lines of mathematics can be
+      //  
+      //  Use an explicit width like "30em" for a fixed width.
+      //  Use "container" to compute the size from the containing element.
+      //  Use "nn% container" for a portion of the container.
+      //  Use "nn%" for a portion of the window size.
+      //  
+      //  The container-based widths may be slower, and may not produce the
+      //  expected results if the layout width changes due to the removal
+      //  of previews or inclusion of mathematics during typesetting.
+      //  
+      width: "container"
+    },
+
+    //
+    //  This allows you to define or modify the styles used to display
+    //  various math elements created by MathJax.
+    //  
+    //  Example:
+    //      styles: {
+    //        ".MathJax .merror": {
+    //          color:   "#CC0000",
+    //          border:  "1px solid #CC0000"
+    //        }
+    //      }
+    //
+    styles: {},
+    
+    //
+    //  Configuration for <maction> tooltips
+    //    (see also the #MathJax_Tooltip CSS in MathJax/jax/output/SVG/config.js,
+    //     which can be overriden using the styles values above).
+    //
+    tooltip: {
+      delayPost: 600,          // milliseconds delay before tooltip is posted after mouseover
+      delayClear: 600,         // milliseconds delay before tooltip is cleared after mouseout
+      offsetX: 10, offsetY: 5  // pixels to offset tooltip from mouse position
+    }
+  },
+  
+  //============================================================================
+  //
   //  These parameters control the contextual menus that are available on the 
   //  mathematics within the page (provided the showMathMenu value is true above).
   //
@@ -632,7 +953,7 @@ MathJax.Hub.Config({
     //  Preferences", "Contextual Menu", and "Discoverable" menu items will
     //  be displayed or not.
     //
-    showRenderer: false,
+    showRenderer: true,
     showMathPlayer: true,
     showFontMenu: false,
     showContext:  false,
@@ -672,6 +993,26 @@ MathJax.Hub.Config({
     hover: 500
   },
 
+  //============================================================================
+  //
+  //  These parameters control the MMLorHTML configuration file.
+  //  NOTE:  if you add MMLorHTML.js to the config array above,
+  //  you must REMOVE the output jax from the jax array.
+  //
+  MMLorHTML: {
+    //
+    //  The output jax that is to be preferred when both are possible
+    //  (set to "MML" for native MathML, "HTML" for MathJax's HTML-CSS output jax).
+    //
+    prefer: {
+      MSIE:    "MML",
+      Firefox: "HTML",
+      Opera:   "HTML",
+      Safari:  "HTML",
+      Chrome:  "HTML",
+      other:   "HTML"
+    }
+  }
 });
 
 MathJax.Ajax.loadComplete("[MathJax]/config/default.js");
