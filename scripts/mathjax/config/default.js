@@ -206,8 +206,8 @@ MathJax.Hub.Config({
   //  have been moved to this more central location since they are shared
   //  by all output jax.
   //
-  showMathMenu: true,
-  showMathMenuMSIE: true,
+  showMathMenu: false,
+  showMathMenuMSIE: false,
 
 
   //
