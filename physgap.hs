@@ -93,6 +93,7 @@ copyRoute = do
 main :: IO ()
 main = hakyllWith config $ do
   match "config.xml" copyRoute
+  match "icon.png" copyRoute
   match "cordova.js" copyRoute
   match "styles/**" copyRoute
   match "scripts/**" copyRoute

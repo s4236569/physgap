@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns     = "http://www.w3.org/ns/widgets"
-        xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.mmcclintock.physgap"
-        version   = "1.2.0">
+<widget xmlns       = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "com.mmcclintock.physgap"
+        version     = "1.2.0"
+        versionCode = "1.2.0">
+
     <name>PhysGap</name>
 
     <description>
@@ -19,8 +21,6 @@
     <preference name="fullscreen"       value="false" />
     <preference name="permissions"      value="none" />
 
-    <gap:splash src="static/splash/android/screen-ldpi-portrait.png"  gap:platform="android" gap:density="ldpi" />
-    <gap:splash src="static/splash/android/screen-mdpi-portrait.png"  gap:platform="android" gap:density="mdpi" />
-    <gap:splash src="static/splash/android/screen-hdpi-portrait.png"  gap:platform="android" gap:density="hdpi" />
-    <gap:splash src="static/splash/android/screen-xhdpi-portrait.png" gap:platform="android" gap:density="xhdpi" />
+    <icon src="icon.png" width="128" height="128" />
+
 </widget>
