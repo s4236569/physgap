@@ -1,6 +1,7 @@
 *.hi
 *.o
 .hsenv*
+hsenv.log
 .hdevtools.sock
 cache*
 physgap
