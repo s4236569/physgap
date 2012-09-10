@@ -93,7 +93,6 @@ copyRoute = do
 main :: IO ()
 main = hakyllWith config $ do
   match "config.xml" copyRoute        -- phonegap build config
-  match "cordova.js" copyRoute        -- phonegap lib (ignored by git)
   match "static/icons/icon.png" $ do  -- icon needs to be at top level
     route $ constRoute "icon.png"
     compile copyFileCompiler
