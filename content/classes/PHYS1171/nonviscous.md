@@ -7,6 +7,4 @@ author: Michael McClintock
 
 Bernoulli
 
-$\rho g h=3$
-
-This is obviouslt wrong
+> $$p+\frac{1}{2}pV^2+\rho g h=constant$$
