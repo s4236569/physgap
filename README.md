@@ -192,7 +192,8 @@ windows/Mac) is:
 # Want to contribute
 
 All contributions are welcome. Fork the repository, make some changes
-and send back a pull request. Otherwise get in contact with me.
+and send back a pull request. Get in contact with me if you have any
+questions.
 
 # License
 
