@@ -18,9 +18,10 @@ pressure.
 
 ![ ](/static/pressure1.png)
 
-
-Like the diagram on the far right it's often beneficial to think of
-pressure as a *scalar* value defined at at a point.
+We can see as long as we keep the ratio of force and area the same
+pressure remains constant. What's interesting is we can keep shrinking
+them both until we essentially have a *scalar* value at a point. It's
+often beneficial to think of pressure this way.
 
 You may wonder why pressure is a *scalar*, why it has no concept of
 direction. Direction is certainly important when considering forces
@@ -41,10 +42,10 @@ words what would be the *net* force on the ball?
 
 The figure above shows a small *patch* of area on the surface of the
 ball lets call it $A_p$. Now we know the pressure is $10$ pa, the
-force must be $10*A_p$ and its direction is normal to the surface.
+force must be $10\timesA_p$ and its direction is normal to the surface.
 This means the force points straight towards the center of the ball.
 
-So what is the total force that the liquid exerts on the ball if it's
+So what is the total force that the liquid exerts on the ball? If it's
 not immediately obvious think about it?
 
 Its zero right? This is because for every small patch that causes a
@@ -52,7 +53,7 @@ force toward the ball's center there is *always* one on the other side
 of the ball that directly cancels it. If we include gravity the total
 force is $mg$ downward. 
 
-So the ball will sink fast! But wait wouldn't the tennis ball float?
+So the ball will sink! But wait wouldn't the tennis ball float?
 What assumption above is incorrect? 
 
 ## Example 2: A pressure change
@@ -71,9 +72,9 @@ added up all the forces we would find that the total pressure force
 points to the right. The ball would start moving that way.
 
 So coming back to the sinking tennis ball problem from the last
-example and in light of what we have just been talking about what is
+example and in light of what we have just discovered, what is
 one way to make the tennis ball float? What can we say about how the
-pressure changes in a real liquid?
+pressure changes in a tub with real liquid?
 
 Here we can see that if we know what the pressure is at every point in
 a fluid we can predict what forces will act on a submerged object.
