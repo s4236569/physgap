@@ -97,7 +97,7 @@ main = hakyllWith config $ do
 
   match "cordova.js" copyRoute      -- phonegap lib (ignored by git)
 
-  match "static/icon.png" $ do      -- icon needs to be at top level
+  match "static/icons/icon.png" $ do      -- icon needs to be at top level
     route $ constRoute "icon.png"
     compile copyFileCompiler
 
