@@ -14,8 +14,6 @@ $\exists x \forall y (Rxy \equiv Ryx)$
 
 $p \wedge q \models p$
 
-$\Box\diamond p\equiv\diamond p$
-
 $\int_{0}^{1} x dx = \left[ \frac{1}{2}x^2 \right]_{0}^{1} =
 \frac{1}{2}$
 
