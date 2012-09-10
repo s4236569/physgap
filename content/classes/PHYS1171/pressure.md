@@ -26,7 +26,7 @@ You may wonder why pressure is a *scalar*, why it has no concept of
 direction. Direction is certainly important when considering forces
 (imagine if gravity wasn't pulling you *down* towards the earth).
 
-so why isn't it important when we talk about pressure? The reason is
+So why isn't it important when we talk about pressure? The reason is
 that the force is understood to act normal to the surface of the
 object on which the pressure acts.
 
@@ -44,21 +44,21 @@ ball lets call it $A_p$. Now we know the pressure is $10$ pa, the
 force must be $10*A_p$ and its direction is normal to the surface.
 This means the force points straight towards the center of the ball.
 
-So what is the total force acting on the ball? If it's not imediately
-obvious think about it? 
+So what is the total force that the liquid exerts on the ball if it's
+not immediately obvious think about it?
 
 Its zero right? This is because for every small patch that causes a
 force toward the ball's center there is *always* one on the other side
-of the ball that directly cancels it. So nothing would happen.
+of the ball that directly cancels it. If we include gravity the total
+force is $mg$ downward. 
+
+So the ball will sink fast! But wait wouldn't the tennis ball float?
+What assumption above is incorrect? 
 
 ## Example 2: A pressure change
 
-Of course a real ball is unlikely to just sit in the middle of the
-tub. It will either sink or float and we will get to *why* in the next
-module. 
-
 For now lets just make a small modification to the bath tub example.
-what would happen if the pressure on the left of the ball was greater
+What would happen if the pressure on the left of the ball was greater
 than the pressure on the right? For some help look at the picture
 below
 
@@ -67,13 +67,19 @@ below
 The balls surface hasn't changed so all the forces still all point to
 the centre of the ball. But what has changed is that forces on the
 left hand side are all larger than the forces on the right. If we
-added up all the forces we would find that the net force points to the
-right. The ball would start moving that way.
+added up all the forces we would find that the total pressure force
+points to the right. The ball would start moving that way.
+
+So coming back to the sinking tennis ball problem from the last
+example and in light of what we have just been talking about what is
+one way to make the tennis ball float? What can we say about how the
+pressure changes in a real liquid?
 
 Here we can see that if we know what the pressure is at every point in
 a fluid we can predict what forces will act on a submerged object.
 Also we can see that a change in pressure also known as a pressure
-gradient or a pressure differential can cause motion. For example this
-is why water flows in a garden hose.
+gradient or a pressure differential can cause motion. For example a
+blood pressure differential is what causes blood to flow through our
+veins.
 
 <!-- vim: set ft=pdc: -->
