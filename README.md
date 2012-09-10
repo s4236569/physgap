@@ -194,12 +194,3 @@ windows/Mac) is:
 All contributions are welcome. Fork the repository, make some changes
 and send back a pull request. Get in contact with me if you have any
 questions.
-
-# License
-
-MathJax/Jquery/Jquery Mobile have their own licenses
-
-For everything else:
-
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_GB"><img alt="Creative Commons Licence" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">PhysGap</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/mmcclintock/physgap" property="cc:attributionName" rel="cc:attributionURL">Michael McClintock</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_GB">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
-
