@@ -18,10 +18,10 @@ pressure.
 
 ![ ](/static/pressure1.png)
 
-We can see as long as we keep the ratio of force and area the same
-pressure remains constant. What's interesting is we can keep shrinking
-them both until we essentially have a *scalar* value at a point. It's
-often beneficial to think of pressure this way.
+We can see that as long as we keep the ratio of force and area the
+same the pressure remains constant. What's interesting is we can keep
+shrinking them both until we essentially have a *scalar* value at a
+point. It's often beneficial to think of pressure this way.
 
 You may wonder why pressure is a *scalar*, why it has no concept of
 direction. Direction is certainly important when considering forces
@@ -42,15 +42,16 @@ words what would be the *net* force on the ball?
 
 The figure above shows a small *patch* of area on the surface of the
 ball lets call it $A_p$. Now we know the pressure is $10$ pa, the
-force must be $10\timesA_p$ and its direction is normal to the surface.
-This means the force points straight towards the center of the ball.
+force must be $10\times A_p$ and its direction is normal to the
+surface.  This means the force points straight towards the center of
+the ball.
 
 So what is the total force that the liquid exerts on the ball? If it's
 not immediately obvious think about it?
 
 Its zero right? This is because for every small patch that causes a
 force toward the ball's center there is *always* one on the other side
-of the ball that directly cancels it. If we include gravity the total
+of the ball that directly cancels it. If we include gravity the net
 force is $mg$ downward. 
 
 So the ball will sink! But wait wouldn't the tennis ball float?
@@ -65,7 +66,7 @@ below
 
 ![ ](/static/pressure3.png)
 
-The balls surface hasn't changed so all the forces still all point to
+The balls surface hasn't changed, so all the forces still all point to
 the centre of the ball. But what has changed is that forces on the
 left hand side are all larger than the forces on the right. If we
 added up all the forces we would find that the total pressure force
