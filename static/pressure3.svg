@@ -14,10 +14,7 @@
    id="svg9845"
    version="1.1"
    inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="pressure21.svg"
-   inkscape:export-filename="/home/michael/PHYS3900/physgap/static/pressure2.png"
-   inkscape:export-xdpi="90.879997"
-   inkscape:export-ydpi="90.879997">
+   sodipodi:docname="pressure2.svg">
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -26,7 +23,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="102.59421"
+     inkscape:cx="70.627603"
      inkscape:cy="119.37758"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -188,8 +185,20 @@
      transform="translate(-164.03367,-62.494482)">
     <path
        sodipodi:nodetypes="cc"
-       style="fill:#ff9955;stroke:#ff5555;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Sstart8);marker-end:none"
-       d="m 447.1938,123.20776 42.34291,-18.33525"
+       style="fill:#ff9955;stroke:#ff5555;stroke-width:3.51721644;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Sstart8);marker-end:none"
+       d="m 454.17821,157.41621 14.48576,2.37904"
+       id="path10367-0-7"
+       inkscape:connector-curvature="0" />
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:#ff9955;stroke:#ff5555;stroke-width:3.51721644;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Sstart8);marker-end:none"
+       d="m 439.17821,103.84478 11.62862,-9.049539"
+       id="path10367-0-3"
+       inkscape:connector-curvature="0" />
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:#ff9955;stroke:#ff5555;stroke-width:3.51721644;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Sstart8);marker-end:none"
+       d="m 447.1938,123.20776 15.91434,-5.47811"
        id="path10367-0"
        inkscape:connector-curvature="0" />
     <path
@@ -216,8 +225,20 @@
     <path
        sodipodi:nodetypes="cc"
        style="fill:#ff9955;stroke:#ff5555;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow1Senda)"
-       d="M 224.95665,194.74346 279.5552,173.12394"
+       d="M 174.24236,206.88632 279.5552,173.12394"
        id="path10367"
+       inkscape:connector-curvature="0" />
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:#ff9955;stroke:#ff5555;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow1Senda)"
+       d="m 166.53367,126.69766 111.02712,16.23762"
+       id="path10367-4"
+       inkscape:connector-curvature="0" />
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:#ff9955;stroke:#ff5555;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow1Senda)"
+       d="m 199.98415,268.75984 88.16998,-58.76238"
+       id="path10367-4-7"
        inkscape:connector-curvature="0" />
   </g>
 </svg>

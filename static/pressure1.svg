@@ -14,7 +14,10 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="pressure1.svg">
+   sodipodi:docname="pressure1.svg"
+   inkscape:export-filename="/home/michael/PHYS3900/physgap/static/pressure1.png"
+   inkscape:export-xdpi="90.879997"
+   inkscape:export-ydpi="90.879997">
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -28,9 +31,9 @@
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1364"
+     inkscape:window-width="681"
      inkscape:window-height="766"
-     inkscape:window-x="0"
+     inkscape:window-x="683"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
      fit-margin-top="0"
