@@ -15,6 +15,7 @@
   document.addEventListener("deviceready", onDeviceReady, false);
 }
 function onDeviceReady() {
+  navigator.splashscreen.hide();
 }
 var mathjax_loaded = false;
 function callmj () {
@@ -55,12 +56,12 @@ function callmj () {
 <ul data-role="listview" data-inset="true"><li><a href="#Pandocequationtests">Pandoc equation tests</a></li></ul>
 </div>
 </div>
-<div class="contentPage" data-role="page" id="Buoyancy" data-add-back-btn="true">
+<div class="contentPage" data-role="page" id="Buoyancy" data-add-back-btn="true"><script type="text/javascript" src="./scripts/loadmj.js"></script>
 <div data-role="header"><h1> Buoyancy</h1>
 <a class="ui-btn-right" href="#Classes" data-icon="home">Home</a>
 </div>
-<div data-role="content"><h1 id="buoyancy">Buoyancy</h1>
-<p>Buoyancy is hard to spell</p></div>
+<div data-role="content"><h1 id="buoyancy">Buoyancy</h1>
+<p> Buoyancy is hard to spell.  \(F_{buoy}=m_f g=\rho_f V_f g\)</p></div>
 </div>
 <div class="contentPage" data-role="page" id="Nonviscous" data-add-back-btn="true">
 <div data-role="header"><h1> Nonviscous</h1>

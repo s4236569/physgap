@@ -19,6 +19,9 @@
     <preference name="target-device"    value="universal" />
     <preference name="fullscreen"       value="false" />
     <preference name="permissions"      value="none" />
+    
+    <preference name="show-splash-screen-spinner" value="false" />
+    <preference name="auto-hide-splash-screen" value="false" />
 
     <icon src="icon.png" width="256" height="256" />
     <icon src="static/icons/ios/icon.png" width="57" height="57" />
