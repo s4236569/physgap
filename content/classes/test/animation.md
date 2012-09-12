@@ -6,5 +6,5 @@ equations: false
 
 test animation built with sencha animator.
 
-<br><iframe class="animation-size"
-src="/static/test_animation/test.html"></iframe>
+<div class="animation-size" data-sencha-anim-url="/static/test_animation/"></div>
+<script type="text/javascript" src="/static/test_animation/embed/senchaAnimatorEmbed.js"></script>
