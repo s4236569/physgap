@@ -1,17 +1,10 @@
 ---
-title: Animation
+title: Animation example
 author: Michael McClintock
-equations: false
+equations: true
 ---
 
-test animation built with sencha animator.
+Here is a button for a test animation:
 
-<script type="text/javascript">
-  $('#Animation').one('pageshow', function(event, ui) {
-    if (!$(this).added) {
-      $(this).append('<iframe id="anim" class="animation-size" src="/static/test_animation/test.html"></iframe>');
-    }
-  });
+<a href="#testAnimation" data-rel="popup" data-position-to="window" data-role="button" data-theme="b" data-inline="true">Run Animation</a>
 
-
- </script>

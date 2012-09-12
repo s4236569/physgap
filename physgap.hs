@@ -73,6 +73,10 @@ buildMenuPages = match isMenu . group "menu-pages" $ do
     setMenuArrow d = setFieldA "menu" $ 
       requireAll_ (grpI d) >>> arr mconcat >>> arr pageBody
 
+-- process animations (they exist as .html in content folder
+buildAnimations = match "content/**.html" . group "animation-popups" $
+  compile readPageCompiler
+
 -- build the app from all the other content route to index.html
 createHTML = do
   loadTemplates
@@ -80,10 +84,12 @@ createHTML = do
   buildMenuItems
   buildContentPages
   buildMenuPages
+  buildAnimations
   match "index.html" $ route idRoute
-  create "index.html" $ (requireAll_ (inGroup $ Just "content-pages") 
-    &&& requireAll_ (inGroup $ Just "menu-pages"))
-    >>> arr (\(cs, ms) -> concat (ms ++ cs))
+  create "index.html" $ requireAll_ (inGroup $ Just "content-pages") 
+    &&& requireAll_ (inGroup $ Just "menu-pages") >>> arr (uncurry (++))
+    &&& requireAll_ (inGroup $ Just "animation-popups") >>> arr (uncurry (++))
+    >>> arr mconcat 
     >>> applyTemplateCompiler "templates/wrapper.hamlet"
     >>> relativizeUrlsCompiler
 
