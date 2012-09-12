@@ -13,5 +13,3 @@ $('.contentPage').live('pageshow', function(event, ui) {
   script.onload = callmj;
   head.appendChild(script);
 });
-
-
