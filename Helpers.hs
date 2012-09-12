@@ -1,7 +1,6 @@
 module Helpers
 ( isParent
 , inMenu
-, loadJaxScript
 , validId
 , addValidId
 ) where
@@ -27,9 +26,6 @@ inMenu dm di = notThis && (isTerm || isFolder)
     isTerm = takeDirectory menuPath == takeDirectory itemPath
     itemParPar = takeDirectory . takeDirectory $ itemPath
     isFolder = isParent di && (takeDirectory menuPath == itemParPar)
-
-loadJaxScript :: Compiler a String
-loadJaxScript = constA "<script type=\"text/javascript\" src=\"/scripts/loadmj.js\"></script>"
 
 validId :: Page a -> String
 validId = filter isAlphaNum . getField "title"

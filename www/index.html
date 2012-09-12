@@ -63,14 +63,44 @@ iframe {
 <ul data-role="listview" data-inset="true"><li><a href="#Animation">Animation</a></li><li><a href="#Pandocequationtests">Pandoc equation tests</a></li></ul>
 </div>
 </div>
-<div class="contentPage" data-role="page" id="Buoyancy" data-add-back-btn="true"><script type="text/javascript" src="./scripts/loadmj.js"></script>
+<div class="contentPage" data-role="page" id="Buoyancy" data-add-back-btn="true"><script type="text/javascript">$('#Buoyancy').live('pageshow', function(event, ui) {
+  var head = document.getElementsByTagName("head")[0], script;
+  script = document.createElement("script");
+  script.type = "text/x-mathjax-config";
+  script[(window.opera ? "innerHTML" : "text")] =
+    "MathJax.Hub.Config({\n" +
+    "  tex2jax: { inlineMath: [['$','$'],['\\\\(','\\\\)']]}\n" +
+    "});"
+  head.appendChild(script);
+  script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src  = "./scripts/mathjax/MathJax.js?config=default";
+  script.onload = callmj;
+  head.appendChild(script);
+});</script>
+
 <div data-role="header"><h1> Buoyancy</h1>
 <a class="ui-btn-right" href="#Classes" data-icon="home">Home</a>
 </div>
 <div data-role="content"><h1 id="buoyancy">Buoyancy</h1>
 <p> Buoyancy is hard to spell.  \(F_{buoy}=m_f g=\rho_f V_f g\)</p></div>
 </div>
-<div class="contentPage" data-role="page" id="Nonviscous" data-add-back-btn="true">
+<div class="contentPage" data-role="page" id="Nonviscous" data-add-back-btn="true"><script type="text/javascript">$('#Nonviscous').live('pageshow', function(event, ui) {
+  var head = document.getElementsByTagName("head")[0], script;
+  script = document.createElement("script");
+  script.type = "text/x-mathjax-config";
+  script[(window.opera ? "innerHTML" : "text")] =
+    "MathJax.Hub.Config({\n" +
+    "  tex2jax: { inlineMath: [['$','$'],['\\\\(','\\\\)']]}\n" +
+    "});"
+  head.appendChild(script);
+  script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src  = "./scripts/mathjax/MathJax.js?config=default";
+  script.onload = callmj;
+  head.appendChild(script);
+});</script>
+
 <div data-role="header"><h1> Nonviscous</h1>
 <a class="ui-btn-right" href="#Classes" data-icon="home">Home</a>
 </div>
@@ -80,7 +110,22 @@ iframe {
 <p>\(p+\frac{1}{2}pV^2+\rho g h=constant\)</p>
 </blockquote></div>
 </div>
-<div class="contentPage" data-role="page" id="Pressure" data-add-back-btn="true"><script type="text/javascript" src="./scripts/loadmj.js"></script>
+<div class="contentPage" data-role="page" id="Pressure" data-add-back-btn="true"><script type="text/javascript">$('#Pressure').live('pageshow', function(event, ui) {
+  var head = document.getElementsByTagName("head")[0], script;
+  script = document.createElement("script");
+  script.type = "text/x-mathjax-config";
+  script[(window.opera ? "innerHTML" : "text")] =
+    "MathJax.Hub.Config({\n" +
+    "  tex2jax: { inlineMath: [['$','$'],['\\\\(','\\\\)']]}\n" +
+    "});"
+  head.appendChild(script);
+  script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src  = "./scripts/mathjax/MathJax.js?config=default";
+  script.onload = callmj;
+  head.appendChild(script);
+});</script>
+
 <div data-role="header"><h1> Pressure</h1>
 <a class="ui-btn-right" href="#Classes" data-icon="home">Home</a>
 </div>
@@ -120,20 +165,34 @@ iframe {
 <a class="ui-btn-right" href="#Classes" data-icon="home">Home</a>
 </div>
 <div data-role="content"><p>test animation built with sencha animator.</p>
-<div class="animation-size" data-sencha-anim-url="/static/test_animation/"></div>
 <script type="text/javascript">
-  $('.contentPage').live('pageinit', function(event, ui) {
-    var head = document.getElementsByTagName("head")[0], script;
-    script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "/static/test_animation/embed/senchaAnimatorEmbed.js";
-    head.appendChild(script);
+  $('#Animation').one('pageshow', function(event, ui) {
+    if (!$(this).added) {
+      $(this).append('<iframe id="anim" class="animation-size" src="./static/test_animation/test.html"></iframe>');
+    }
   });
-</script>
+
+
+ </script>
 
 </div>
 </div>
-<div class="contentPage" data-role="page" id="Pandocequationtests" data-add-back-btn="true"><script type="text/javascript" src="./scripts/loadmj.js"></script>
+<div class="contentPage" data-role="page" id="Pandocequationtests" data-add-back-btn="true"><script type="text/javascript">$('#Pandocequationtests').live('pageshow', function(event, ui) {
+  var head = document.getElementsByTagName("head")[0], script;
+  script = document.createElement("script");
+  script.type = "text/x-mathjax-config";
+  script[(window.opera ? "innerHTML" : "text")] =
+    "MathJax.Hub.Config({\n" +
+    "  tex2jax: { inlineMath: [['$','$'],['\\\\(','\\\\)']]}\n" +
+    "});"
+  head.appendChild(script);
+  script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src  = "./scripts/mathjax/MathJax.js?config=default";
+  script.onload = callmj;
+  head.appendChild(script);
+});</script>
+
 <div data-role="header"><h1> Pandoc equation tests</h1>
 <a class="ui-btn-right" href="#Classes" data-icon="home">Home</a>
 </div>

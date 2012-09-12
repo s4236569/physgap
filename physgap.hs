@@ -33,13 +33,14 @@ markupMarkdown = match allMD . group "marked-down" $
 buildContentPages = match isContent . group "content-pages" $ do
     ds <- resources
     forM_ ds $ \d -> 
-      create d $ (require_ . depI $ d) >>> arr isEquations
+      create d $ (require_ . depI $ d) >>> addValidId
+        >>> arr isEquations
         >>> (mathjaxA ||| arr (setField "mathjax" ""))
-        >>> addValidId
         >>> applyTemplateCompiler "templates/content.hamlet"
   where 
     depI = setGroup (Just "marked-down")
-    mathjaxA = arr (\p -> (p, p)) >>> setFieldA "mathjax" loadJaxScript
+    mathjaxA = arr (\p -> (p, p))
+      >>> setFieldA "mathjax" (applyTemplateCompiler "templates/loadmj.hamlet" >>> arr pageBody)
     isEquations p
       | getField "equations" p == "true" = Left p
       | otherwise = Right p

@@ -1,6 +1,7 @@
 ---
 title: Nonviscous
 author: Michael McClintock
+equations: true
 ---
 
 # Non-viscous Flow
