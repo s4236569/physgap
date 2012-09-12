@@ -96,7 +96,7 @@ main = hakyllWith config $ do
   match "static/icons/icon.png" $ do  -- icon needs to be at top level
     route $ constRoute "icon.png"
     compile copyFileCompiler
-  match "static/**.png" copyRoute     -- pngs only
+  match "static/**" copyRoute
   match "styles/**" copyRoute         -- route styles
   match "scripts/**" copyRoute        -- route all scripts
   createHTML                          -- create index.html

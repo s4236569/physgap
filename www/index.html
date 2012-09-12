@@ -26,6 +26,13 @@ function callmj () {
     mathjax_loaded = true;
   }
 }</script>
+<style type="text/css">.animation-size {
+  width: 480px;
+  height: 320px;
+}
+iframe {
+  border-width: 0;
+}</style>
 </head>
 <body onload="onLoad()"><div data-role="page" id="PHYS1171" data-add-back-btn="true"><div data-role="header"><h1> PHYS1171</h1>
 <a class="ui-btn-right" href="#Classes" data-icon="home">Home</a>
@@ -53,7 +60,7 @@ function callmj () {
 <a class="ui-btn-right" href="#Classes" data-icon="home">Home</a>
 </div>
 <div data-role="content"><p>Folder for testing</p>
-<ul data-role="listview" data-inset="true"><li><a href="#Pandocequationtests">Pandoc equation tests</a></li></ul>
+<ul data-role="listview" data-inset="true"><li><a href="#Animation">Animation</a></li><li><a href="#Pandocequationtests">Pandoc equation tests</a></li></ul>
 </div>
 </div>
 <div class="contentPage" data-role="page" id="Buoyancy" data-add-back-btn="true"><script type="text/javascript" src="./scripts/loadmj.js"></script>
@@ -107,6 +114,13 @@ function callmj () {
 <!-- vim: set ft=pdc: -->
 
 </div>
+</div>
+<div class="contentPage" data-role="page" id="Animation" data-add-back-btn="true">
+<div data-role="header"><h1> Animation</h1>
+<a class="ui-btn-right" href="#Classes" data-icon="home">Home</a>
+</div>
+<div data-role="content"><p>test animation built with sencha animator.</p>
+<br><iframe class="animation-size" src="./static/test_animation/index.html"></iframe></div>
 </div>
 <div class="contentPage" data-role="page" id="Pandocequationtests" data-add-back-btn="true"><script type="text/javascript" src="./scripts/loadmj.js"></script>
 <div data-role="header"><h1> Pandoc equation tests</h1>
