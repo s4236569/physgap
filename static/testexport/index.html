@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<!-- Sencha Animator Version: 1.3 Build: 177 -->
+<head>
+<meta charset="UTF-8">
+<title>test &middot; Made with Sencha Animator</title>
+
+
+<script type="text/javascript">
+
+
+    if (typeof(AN) === 'undefined') {
+       var AN = {}; 
+    }
+    AN.Controller = function() {
+        return {
+            scenes: {},
+            scenesArray: [],
+            currentSceneID: -1,
+            olElement: null,
+            events: {},
+            useOrmma: false,
+            prefix: "",
+            basePath: "",
+
+            setConfig: function(configData) {
+
+                this.events = configData.events;
+                this.prefix = configData.cssPrefix;
+                this.projectActions = configData.projectActions;
+                this.userData = {};
+                if (configData.basePath) {
+                    this.basePath = configData.basePath;
+                }
+
+                this.olElement = document.querySelector('#' + configData.parentId + ' ol');
+                var liElements = this.olElement.children;
+
+                if (configData.ormma) {
+                    this.useOrmma = true;
+                }
+
+                this.sceneIdByName = {};
+                var scene;
+                for (var i=0; i < configData.scenes.length; i++) {
+                    scene = configData.scenes[i];
+                    scene.element = liElements[i];
+                    this.scenes[scene.id] = scene;
+                    this.scenesArray.push(scene);
+                    if (scene.name) {
+                        this.sceneIdByName[scene.name] = scene.id;
+                    }
+                    
+                }
+
+                this.setupListeners();
+                
+                this.startSceneByID = this.startSceneById; /*compat*/
+                
+                if (this.projectActions.init) {
+                    this.projectActions.init.call(this.userData, this);
+                }
+
+                this.startSceneById(this.scenesArray[0].id);
+
+            },
+
+            runningAnimationCount: 0,
+            browser: 'webkit',
+
+            setupListeners: function() {
+                var me = this;
+
+                var eventName = "webkitAnimationEnd";
+
+                if (document.body.style.MozAnimationName !== undefined) {
+                    eventName = "animationend";
+                    this.browser = "moz";
+                }
+
+                this.olElement.addEventListener(eventName, function(event) {
+                    var parent;
+                    if (me.browser === "moz") {
+                        parent = event.target;
+                        while (parent = parent.parentNode) {
+                            if (parent === me.scenes[me.currentSceneID].element) {
+                                me.onAnimationEnd();
+                                return;
+                            }
+                        }
+                    } else {
+                        me.onAnimationEnd();
+                    }
+                },false);
+
+                function addMousemoveListenerTo(scene) {
+                    scene.element.addEventListener('mousemove', function(event){
+                        scene.mousemoveAction.call(me.userData,me, event);
+                    }, false);
+                }
+
+                var scene;
+                for (var i=0; i < this.scenesArray.length; i++) {
+                    scene = this.scenesArray[i];
+                    if (scene.mousemoveAction) {
+
+                        addMousemoveListenerTo(scene);
+                    }
+                }
+
+                function addListenerTo(element, eventType, aFunction) {
+                    element.addEventListener(eventType, function(event){
+                        aFunction.call(me.userData,me,event);
+                    }, false);
+                }
+
+                var element, event, type;
+                for (var i=0; i < this.events.length; i++) {
+                    event = this.events[i];
+                    var type = event.type;
+                    if (this.browser === 'moz' && event.mozType) {
+                        type = event.mozType;
+                    }
+                    element = document.getElementById(event.id);
+                    addListenerTo(element, type, event.handler);
+                }
+
+            },
+
+            onAnimationEnd: function() {
+
+                this.runningAnimationCount--;
+
+                if (this.runningAnimationCount === 0) {
+                    var waitTime = this.scenes[this.currentSceneID].endWaitTime;
+                    if (waitTime) {
+                        var me = this;
+                        this.sceneEndTimeout = setTimeout(function(){
+                            me.onSceneFinish();
+                        },waitTime * 1000);
+                    } else {
+                        this.onSceneFinish();
+                    }
+                }
+            },
+            
+            forceRefresh: function(sceneID) {
+                this.forceRefreshValue = this.scenes[sceneID].element.offsetHeight;
+            },
+            
+            startSceneByName: function(name) {
+                var id = this.sceneIdByName[name];
+                if (id !== undefined) {
+                    this.startSceneById(id);
+                }
+            },
+
+            startSceneById: function(sceneID) {
+
+                var restart = false;
+                if (sceneID === this.currentSceneID) {
+                    restart = true;
+                } else if (this.currentSceneID !== -1) {
+                    this.scenes[this.currentSceneID].element.setAttribute('class','');
+                }
+
+                clearTimeout(this.sceneEndTimeout);
+
+                this.runningAnimationCount = this.scenes[sceneID].animationCount;
+
+                this.currentSceneID = sceneID;
+                var nextScene = this.scenes[sceneID];
+
+                if (restart || this.browser === 'moz') {
+                    nextScene.element.setAttribute('class','run restart');
+                    this.forceRefresh(sceneID);
+                }
+                
+                nextScene.element.setAttribute('class','run');
+                
+                if (!restart && this.useOrmma) {
+                   this.ormmaNextScene(nextScene);
+                }
+
+                if (nextScene.startAction) {
+                    nextScene.startAction.call(this.userData, this);
+                }
+            
+                if (nextScene.animationCount === 0 ) {
+                    this.onSceneFinish();
+                }
+
+            },
+
+            replayScene: function() {
+                this.startSceneById(this.currentSceneID);
+            },
+
+            onSceneFinish: function() {
+                if (this.scenes[this.currentSceneID].endAction) {
+                    this.scenes[this.currentSceneID].endAction.call(this.userData,this);
+                }
+            },
+
+            goToNextScene: function() {
+                var nextIndex = this.scenesArray.indexOf(this.scenes[this.currentSceneID]) + 1;
+                var nextScene;
+                if (nextScene = this.scenesArray[nextIndex]) {
+                    this.startSceneById(nextScene.id);
+                }
+            },
+            goToPreviousScene: function() {
+                var previousIndex = this.scenesArray.indexOf(this.scenes[this.currentSceneID]) - 1;
+                var nextScene;
+                if (previousIndex >= 0) {
+                    this.startSceneById(this.scenesArray[previousIndex].id);
+                }
+            },
+            goToURL: function(aURL) {
+                document.location.href = aURL;
+            },
+            
+            getElementById: function(animatorId) {
+                var cssId = this.prefix + animatorId;
+                return document.getElementById(cssId);
+            },
+            getUrlForLocalAsset: function(assetName) {
+                var url = 'assets/' + assetName;
+                if (this.basePath) {
+                    url = this.basePath + '/' + url;
+                }
+                return url;
+            },
+            ormmaNextScene: function(nextScene) {
+                var currentState = ormma.getState();
+
+                if (nextScene.dimensions.expanded) {
+                    //expanded state
+                    //check if we're expanded
+                    var maxSize = ormma.getMaxSize();
+                    if (currentState !== 'expanded') {
+                        ormma.expand({
+                            x:0,
+                            y:0,
+                            width: maxSize.width,
+                            height: maxSize.height
+                        });
+                    }
+
+                    var transform = "";
+                    var elementHeight = nextScene.element.offsetHeight;
+                    var elementWidth = nextScene.element.offsetWidth;
+                    var y = (maxSize.height - elementHeight) / 2;
+                    var x = (maxSize.width - elementWidth) / 2;
+                    transform += " translate3d("+Math.round(x)+"px,"+Math.round(y)+"px,0)";   
+
+                    if (nextScene.dimensions.fit) {
+                        var scaleFactor = Math.min(maxSize.width/elementWidth, maxSize.height/elementHeight);                    
+                        transform += " scale3d("+scaleFactor+","+scaleFactor+",1)";
+                    }
+                    nextScene.element.style.webkitTransform = transform;
+
+                } else {
+                
+                    if (currentState === 'expanded') {
+                        ormma.close();
+                    }
+                    ormma.resize(nextScene.dimensions.width,nextScene.dimensions.height);
+                }
+            }
+        };
+    };
+
+window.addEventListener('load', function(){
+    var configData = {
+        parentId: 'an-anim',
+        cssPrefix: '',
+        ormma: false,
+        mraid: false,
+        scenes: [{id: 0,animationCount: 3,duration: 2.062,lastKeyframeTime: 2.062,dimensions: {height: 320,width: 480,expanded: false,fit: false},endAction: function(controller) {
+controller.replayScene();
+}}],
+        projectActions: {},
+        events: [],
+        externalResources: []
+    };
+    setTimeout(function(){
+       var controller = new AN.Controller;
+       controller.setConfig(configData);
+    },0);
+}, false);
+</script>
+
+
+<style type="text/css">
+
+#an-anim > ol {
+    list-style: none;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+#an-anim > ol > li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    display: none;
+}
+
+#an-anim > ol > li.run {
+    display: block;
+}
+
+#an-anim .an-stage {
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+#an-anim .an-stage div {
+    position: absolute;
+}
+
+.an-stage * {
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+#an-anim .an-stage img {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#an-anim .AN-Scene-Description {
+    display: none;
+}
+
+#an-anim iframe {
+    border: none;
+    height: 100%;
+    width: 100%
+}
+
+#an-anim .restart * {
+    -webkit-animation-name: none !important;
+}
+
+#an-obj-1 {
+    -webkit-transform: translate3d(71px, 141px, 0px);
+    width: 335px;
+    height: 36px;
+    border-top: 0px solid rgba(1,14,13,1);
+    border-right: 0px solid rgba(1,14,13,1);
+    border-bottom: 0px solid rgba(1,14,13,1);
+    border-left: 0px solid rgba(1,14,13,1);
+    background-color: rgba(194,194,194,1);
+    top: 0;
+    left: 0;
+}
+
+@-webkit-keyframes ani-an-obj-1 {
+    0% {
+        -webkit-transform: translate3d(71px, 141px, 0px) scale3d(1, 1, 1);
+    }
+
+    51.5915% {
+        -webkit-transform: translate3d(71px, 141px, 0px) scale3d(0.1, 1, 1);
+    }
+
+    100% {
+        -webkit-transform: translate3d(71px, 141px, 0px) scale3d(1, 1, 1);
+    }
+}
+
+.run #an-obj-1 {
+    -webkit-animation-name: ani-an-obj-1;
+    -webkit-animation-duration: 2.0622s;
+    -webkit-animation-delay: 0s;
+    -webkit-animation-fill-mode: both;
+}
+
+#an-obj-1 {
+    -webkit-transform: translate3d(71px, 141px, 0px) scale3d(1, 1, 1);
+}
+
+.restart #an-obj-1 {
+    -webkit-transform: translate3d(71px, 141px, 0px) scale3d(1, 1, 1);
+}
+
+#an-obj-2 {
+    -webkit-transform: translate3d(219px, 31px, 0px);
+    width: 39px;
+    height: 255px;
+    border-top: 0px solid rgba(1,14,13,1);
+    border-right: 0px solid rgba(1,14,13,1);
+    border-bottom: 0px solid rgba(1,14,13,1);
+    border-left: 0px solid rgba(1,14,13,1);
+    background-color: rgba(194,194,194,1);
+    top: 0;
+    left: 0;
+}
+
+@-webkit-keyframes ani-an-obj-2 {
+    0% {
+        -webkit-transform: translate3d(219px, 31px, 0px) scale3d(1, 0.1, 1);
+    }
+
+    51.5915% {
+        -webkit-transform: translate3d(219px, 31px, 0px) scale3d(1, 1, 1);
+    }
+
+    100% {
+        -webkit-transform: translate3d(219px, 31px, 0px) scale3d(1, 0.1, 1);
+    }
+}
+
+.run #an-obj-2 {
+    -webkit-animation-name: ani-an-obj-2;
+    -webkit-animation-duration: 2.0622s;
+    -webkit-animation-delay: 0s;
+    -webkit-animation-fill-mode: both;
+}
+
+#an-obj-2 {
+    -webkit-transform: translate3d(219px, 31px, 0px) scale3d(1, 0.1, 1);
+}
+
+.restart #an-obj-2 {
+    -webkit-transform: translate3d(219px, 31px, 0px) scale3d(1, 0.1, 1);
+}
+
+#an-obj-3 {
+    -webkit-transform: translate3d(63px, 56px, 0px);
+    width: 120px;
+    height: 20px;
+    top: 0;
+    left: 0;
+}
+
+@-webkit-keyframes ani-an-obj-3 {
+    0% {
+        -webkit-transform: translate3d(63px, 56px, 0px);
+        opacity: 0;
+    }
+
+    51.5915% {
+        -webkit-transform: translate3d(63px, 56px, 0px);
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: translate3d(63px, 56px, 0px);
+        opacity: 0;
+    }
+}
+
+.run #an-obj-3 {
+    -webkit-animation-name: ani-an-obj-3;
+    -webkit-animation-duration: 2.0622s;
+    -webkit-animation-delay: 0s;
+    -webkit-animation-fill-mode: both;
+}
+
+#an-obj-3 {
+    -webkit-transform: translate3d(63px, 56px, 0px);
+    opacity: 0;
+}
+
+.restart #an-obj-3 {
+    -webkit-transform: translate3d(63px, 56px, 0px);
+    opacity: 0;
+}
+
+#an-scene-0 .an-stage {
+    height: 320px;
+    width: 480px;
+    background-color: rgba(255,255,255,1);
+}
+
+</style>
+
+
+
+</head>
+<body style="margin:0;">
+<div id="an-anim"><ol>
+
+<li id="an-scene-0" >
+<div class="an-stage">
+    <div id="an-obj-1"></div>
+    <div id="an-obj-2"></div>
+    <div id="an-obj-3"><span>Test</span></div>
+</div>
+</li>
+
+</ol></div>
+
+</body>
+</html>
