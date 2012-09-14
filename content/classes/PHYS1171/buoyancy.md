@@ -6,9 +6,6 @@ equations: true
 
 # Buoyancy
 
-
-$F_{buoy}=m_f g=\rho_f V_f g$
-
 [Insert Image]
 
 Take the block of water inside the bucket on the left hand side. This block of water is being upheld by the pressure in the liquid underneath the block of water, while being pressed down by the force of gravity.
