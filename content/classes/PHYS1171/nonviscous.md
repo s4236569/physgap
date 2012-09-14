@@ -1,6 +1,6 @@
 ---
 title: Non-viscous Flow
-author: Michael McClintock
+author: Michael McClintock, Alex van Nunen
 equations: true
 ---
 
